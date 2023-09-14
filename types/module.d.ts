@@ -9,6 +9,10 @@ declare module "virtual:*" {
   const result: any;
   export default result;
 }
+declare module "~icons*" {
+  const result: any;
+  export default result;
+}
 
 declare module "*.less" {
   const content: any;

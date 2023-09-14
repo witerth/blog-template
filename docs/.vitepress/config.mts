@@ -5,6 +5,8 @@ import { blogTheme, extraHead } from './blog-theme'
 import Components from "unplugin-vue-components/vite";
 import AutoImport from "unplugin-auto-import/vite";
 import UnoCSS from 'unocss/vite'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from "unplugin-icons/resolver";
 export default defineConfig({
   extends: blogTheme,
   lang: 'zh-cn',
@@ -25,6 +27,7 @@ export default defineConfig({
       exclude: ['vitepress-plugin-tabs']
     },
     plugins: [
+      Icons(),
       UnoCSS(),
       // https://github.com/antfu/unplugin-auto-import
       AutoImport({
@@ -46,6 +49,7 @@ export default defineConfig({
       Components({
         dts: true,
         dirs: ["./src/components"],
+        resolvers: [IconsResolver()],
       }),
     ],
   },

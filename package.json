@@ -42,6 +42,7 @@
 		"serve": "vitepress serve docs"
 	},
 	"dependencies": {
+		"@types/node": "^18.15.11",
 		"@mdit-vue/shared": "^0.12.0",
 		"@mermaid-js/mermaid-mindmap": "^9.3.0",
 		"@vue/shared": "^3.2.45",
@@ -56,12 +57,14 @@
 	},
 	"devDependencies": {
 		"@element-plus/icons-vue": "^2.1.0",
+		"@iconify/json": "^2.2.115",
 		"element-plus": "^2.3.4",
 		"sass": "^1.56.1",
 		"tsup": " ^6.5.0",
 		"typescript": "^4.8.2",
 		"unocss": "^0.55.7",
 		"unplugin-auto-import": "^0.15.2",
+		"unplugin-icons": "^0.17.0",
 		"unplugin-vue-components": "^0.24.1",
 		"vitepress": "1.0.0-rc.11",
 		"vitepress-plugin-tabs": "^0.2.0",

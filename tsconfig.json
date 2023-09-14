@@ -1,34 +1,35 @@
 {
-	"compilerOptions": {
-		"baseUrl": ".",
-		"module": "esnext",
-		"outDir": "dist",
-		"target": "esnext",
-		"moduleResolution": "node",
-		"strict": true,
-		"jsx": "preserve",
-		"esModuleInterop": true,
-		"noUnusedLocals": true,
-		"lib": ["ESNext", "DOM"],
-		"skipLibCheck": true,
-		"allowJs": true,
-		"resolveJsonModule": true,
-		"paths": {
-			"@blog/theme/node": ["./node"],
-			"@blog/theme": ["src/index.ts"]
-		}
-	},
-	"include": [
-		"src",
-		"types",
-		"docs/**/*",
-		"docs/.vitePress/**/*",
-		"*.ts",
-		"*.mts",
-		"*.tsx",
-		"*.vue",
-		"*.d.ts",
-		"*.md"
-	],
-	"exclude": ["node_modules", "dist", "node.d.ts"]
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "esnext",
+    "outDir": "dist",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "types": [ "node", "unplugin-icons/types/vue"],
+    "paths": {
+      "@blog/theme/node": ["./node"],
+      "@blog/theme": ["src/index.ts"]
+    }
+  },
+  "include": [
+    "src",
+    "types",
+    "docs/**/*",
+    "docs/.vitePress/**/*",
+    "*.ts",
+    "*.mts",
+    "*.tsx",
+    "*.vue",
+    "*.d.ts",
+    "*.md"
+  ],
+  "exclude": ["node_modules", "dist", "node.d.ts"]
 }

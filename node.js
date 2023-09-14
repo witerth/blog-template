@@ -36,7 +36,7 @@ __export(node_exports, {
 });
 module.exports = __toCommonJS(node_exports);
 
-// node_modules/.pnpm/vitepress-plugin-tabs@0.2.0_g6ahb7uw6hln7eyqyabo4xte4a/node_modules/vitepress-plugin-tabs/dist/index.js
+// node_modules/.pnpm/vitepress-plugin-tabs@0.2.0_vitepress@1.0.0-rc.11_vue@3.3.4/node_modules/vitepress-plugin-tabs/dist/index.js
 var tabsMarker = "=tabs";
 var tabsMarkerLen = tabsMarker.length;
 var ruleBlockTabs = (state, startLine, endLine, silent) => {
