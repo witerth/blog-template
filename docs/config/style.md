@@ -19,7 +19,7 @@ recommend: 3
 
 ```ts
 // .vitepress/theme/index.ts [!code focus]
-import BlogTheme from '@sugarat/theme'
+import BlogTheme from '@blog/theme'
 // 自定义样式重载 // [!code focus]
 import './style.scss' // [!code focus]
 
@@ -121,7 +121,7 @@ html[theme].dark {
 将其引入到`.vitepress/theme/index.ts`中即可
 
 ```ts
-import BlogTheme from '@sugarat/theme'
+import BlogTheme from '@blog/theme'
 // 导入绿色主题
 import './green-theme.var.css'
 

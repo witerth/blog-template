@@ -12,7 +12,7 @@ publish: true
 升级主题，原项目执行如下指令即可
 
 ```sh
-pnpm up @sugarat/theme
+pnpm up @blog/theme
 
 # 更新 vitepress 版本
 pnpm add vitepress@latest

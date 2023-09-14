@@ -54,7 +54,7 @@ sticky: 1
 
 ## 主题相关资源
 * 主题地址：https://theme.sugarat.top/
-* 主题包：[@sugarat/theme](https://www.npmjs.com/package/@sugarat/theme)
+* 主题包：[@blog/theme](https://www.npmjs.com/package/@blog/theme)
 * 项目地址：https://github.com/ATQQ/sugar-blog/tree/master/packages/theme
 * 作者博客地址：https://sugarat.top
 

@@ -14,7 +14,7 @@ outline: [2,3]
 
 默认配置如下
 ```ts
-import { getThemeConfig, defineConfig } from '@sugarat/theme/node'
+import { getThemeConfig, defineConfig } from '@blog/theme/node'
 
 const blogTheme = getThemeConfig()
 
@@ -31,7 +31,7 @@ export default defineConfig({
 
 ```ts
 // .vitepress/config.ts
-import { getThemeConfig, defineConfig } from '@sugarat/theme/node'
+import { getThemeConfig, defineConfig } from '@blog/theme/node'
 const blogTheme = getThemeConfig()
 
 export default defineConfig({
@@ -53,7 +53,7 @@ export default defineConfig({
 
 下面是简单示例 **关闭主题自带搜索**
 ```ts
-import { getThemeConfig, defineConfig } from '@sugarat/theme/node'
+import { getThemeConfig, defineConfig } from '@blog/theme/node'
 
 const blogTheme = getThemeConfig({ // [!code focus]
   search: false // [!code focus]
@@ -146,7 +146,7 @@ const blogTheme = getThemeConfig({
 ```ts [example]
 const blogTheme = getThemeConfig({
   home: {
-    name: '@sugarat/theme',
+    name: '@blog/theme',
     motto: '粥里有勺糖的博客主题',
     inspiring: '基于 Vitepress 定制的主题🎨',
     pageSize: 2
@@ -338,7 +338,7 @@ pnpm add vitepress-plugin-search markdown-it flexsearch -D
 ```
 
 ```ts [② .vitepress/config 加入配置]
-import { defineConfig } from '@sugarat/theme/node'
+import { defineConfig } from '@blog/theme/node'
 import { SearchPlugin } from 'vitepress-plugin-search'
 export default defineConfig({
   vite: {
@@ -801,11 +801,11 @@ hero:
 ::: code-group
 
 ```ts [example 基础配置]
-import type { Theme } from '@sugarat/theme'
+import type { Theme } from '@blog/theme'
 
 const baseUrl = 'https://theme.sugarat.top'
 const RSS: Theme.RSSOptions = {
-  title: '@sugarat/theme',
+  title: '@blog/theme',
   baseUrl,
   copyright: 'Copyright (c) 2023-present, 粥里有勺糖',
 }
@@ -815,11 +815,11 @@ const blogTheme = getThemeConfig({
 })
 ```
 ```ts [example2 复杂配置]
-import type { Theme } from '@sugarat/theme'
+import type { Theme } from '@blog/theme'
 
 const baseUrl = 'https://theme.sugarat.top'
 const RSS: Theme.RSSOptions = {
-  title: '@sugarat/theme',
+  title: '@blog/theme',
   baseUrl,
   description: '简约风的 Vitepress 博客主题',
   language: 'zh-cn',
