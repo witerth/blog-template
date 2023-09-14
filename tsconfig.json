@@ -14,15 +14,21 @@
 		"allowJs": true,
 		"resolveJsonModule": true,
 		"paths": {
-			"@sugarat/theme/node": ["./node"],
-			"@sugarat/theme": ["src/index.ts"]
+			"@blog/theme/node": ["./node"],
+			"@blog/theme": ["src/index.ts"]
 		}
 	},
 	"include": [
 		"src",
 		"types",
-		"docs/.vitepress/*.ts",
-		"docs/.vitepress/config.mts"
+		"docs/**/*",
+		"docs/.vitePress/**/*",
+		"*.ts",
+		"*.mts",
+		"*.tsx",
+		"*.vue",
+		"*.d.ts",
+		"*.md"
 	],
 	"exclude": ["node_modules", "dist", "node.d.ts"]
 }

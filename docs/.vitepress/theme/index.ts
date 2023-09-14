@@ -1,6 +1,7 @@
-import BlogTheme from '@sugarat/theme'
+import BlogTheme from '@blog/theme'
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
 import './theme.var.css'
+import 'virtual:uno.css'
 import ChangeThemeDemo from './ChangeThemeDemo.vue'
 
 export default {
