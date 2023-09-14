@@ -1,30 +1,61 @@
 import path from 'path'
-import { defineConfig } from '@sugarat/theme/node'
+import { defineConfig } from '@blog/theme/node'
 import packageJSON from '../../package.json'
 import { blogTheme, extraHead } from './blog-theme'
-
+import Components from "unplugin-vue-components/vite";
+import AutoImport from "unplugin-auto-import/vite";
+import UnoCSS from 'unocss/vite'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from "unplugin-icons/resolver";
 export default defineConfig({
   extends: blogTheme,
   lang: 'zh-cn',
-  title: '@sugarat/theme',
+  title: '@blog/theme',
   description: '粥里有勺糖的博客主题，基于 vitepress 实现',
   head: [...extraHead],
   vite: {
+    // configFile:"./vite.config.ts",
     server: {
       host: '0.0.0.0'
     },
     resolve: {
       alias: {
-        '@sugarat/theme': path.join(__dirname, '../../src/index.ts')
+        '@blog/theme': path.join(__dirname, '../../src/index.ts')
       }
     },
     optimizeDeps: {
       exclude: ['vitepress-plugin-tabs']
-    }
+    },
+    plugins: [
+      Icons(),
+      UnoCSS(),
+      // https://github.com/antfu/unplugin-auto-import
+      AutoImport({
+        imports: ["vue", "@vueuse/core"],
+        dts: "../types/auto-imports.d.ts",
+        dirs: [
+          "./doc/.vitepress/",
+          "./src/components",
+          "./src/composables",
+          "./src/utils",
+          "./src/types",
+        ],
+        vueTemplate: true,
+        eslintrc: {
+          enabled: true,
+        },
+      }),
+      // https://github.com/antfu/vite-plugin-components
+      Components({
+        dts: true,
+        dirs: ["./src/components"],
+        resolvers: [IconsResolver()],
+      }),
+    ],
   },
   themeConfig: {
     footer: {
-      message: `Power By <a target="_blank" href="https://theme.sugarat.top/"> @sugarat/theme@${packageJSON.version} </a>`,
+      message: `Power By <a target="_blank" href="https://theme.sugarat.top/"> @blog/theme@${packageJSON.version} </a>`,
       copyright: 'MIT License | Copyright © 粥里有勺糖'
     },
     nav: [
