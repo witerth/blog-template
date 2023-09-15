@@ -76,12 +76,13 @@ const handleTagClick = (tag: string, type: string) => {
     handleCloseTag();
     return;
   }
-  activeTag.value.type = type;
-  activeTag.value.label = tag;
-  currentPage.value = 1;
   router.go(
     `${location.value.origin}${router.route.path}?tag=${tag}&type=${type}`
   );
+  activeTag.value.type = type;
+  activeTag.value.label = tag;
+  currentPage.value = 1;
+
 };
 
 watch(
