@@ -10,8 +10,8 @@ import IconsResolver from "unplugin-icons/resolver";
 export default defineConfig({
   extends: blogTheme,
   lang: 'zh-cn',
-  title: '@blog/theme',
-  description: '粥里有勺糖的博客主题，基于 vitepress 实现',
+  title: 'witerth',
+  description: 'witerth的个人小站',
   head: [...extraHead],
   vite: {
     // configFile:"./vite.config.ts",
@@ -54,44 +54,44 @@ export default defineConfig({
     ],
   },
   themeConfig: {
-    footer: {
-      message: `Power By <a target="_blank" href="https://theme.sugarat.top/"> @blog/theme@${packageJSON.version} </a>`,
-      copyright: 'MIT License | Copyright © 粥里有勺糖'
-    },
+    // footer: {
+    //   message: `Powered By <a target="_blank" href="https://witerth.cn/"> witerth的个人小站@${packageJSON.version} </a>`,
+    //   copyright: 'MIT License | Copyright © witerth'
+    // },
     nav: [
-      {
-        text: `v${packageJSON.version}`,
-        link: '/changelog'
-      },
-      {
-        text: '个人作品展示',
-        link: '/work'
-      },
-      {
-        text: '线上作品',
-        items: [
-          {
-            text: '轻取(文件收集)',
-            link: 'https://ep2.sugarat.top'
-          },
-          {
-            text: '个人图床',
-            link: 'https://imgbed.sugarat.top'
-          },
-          {
-            text: '考勤小程序',
-            link: 'https://hdkq.sugarat.top/'
-          },
-          {
-            text: '时光恋人',
-            link: 'https://lover.sugarat.top'
-          },
-          {
-            text: '在线简历生成',
-            link: 'https://resume.sugarat.top/'
-          }
-        ]
-      }
+      // {
+      //   text: `v${packageJSON.version}`,
+      //   link: '/changelog'
+      // },
+      // {
+      //   text: '个人作品展示',
+      //   link: '/work'
+      // },
+      // {
+      //   text: '线上作品',
+      //   items: [
+      //     {
+      //       text: '轻取(文件收集)',
+      //       link: 'https://ep2.sugarat.top'
+      //     },
+      //     {
+      //       text: '个人图床',
+      //       link: 'https://imgbed.sugarat.top'
+      //     },
+      //     {
+      //       text: '考勤小程序',
+      //       link: 'https://hdkq.sugarat.top/'
+      //     },
+      //     {
+      //       text: '时光恋人',
+      //       link: 'https://lover.sugarat.top'
+      //     },
+      //     {
+      //       text: '在线简历生成',
+      //       link: 'https://resume.sugarat.top/'
+      //     }
+      //   ]
+      // }
     ],
     socialLinks: [
       {

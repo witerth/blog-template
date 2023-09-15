@@ -135,35 +135,20 @@ export const workConfig: Theme.UserWorks = {
   ]
 }
 
-const baseUrl = 'https://theme.sugarat.top'
-const RSS: Theme.RSSOptions = {
-  title: '@blog/theme',
-  baseUrl,
-  copyright: 'Copyright (c) 2023-present, 粥里有勺糖',
-}
+// const baseUrl = 'https://witerth.cn'
+// const RSS: Theme.RSSOptions = {
+//   title: 'witerth',
+//   baseUrl,
+//   copyright: 'Copyright (c) 2023-present, witerth',
+// }
 
 export const blogTheme = getThemeConfig({
-  RSS,
+  // RSS,
   recommend: {
     nextText: '下一页'
   },
-  friend: [
-    {
-      nickname: '粥里有勺糖',
-      des: '你的指尖,拥有改变世界的力量',
-      avatar:
-        'https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTE2NzAzMA==674995167030',
-      url: 'https://sugarat.top'
-    },
-    {
-      nickname: 'Vitepress',
-      des: 'Vite & Vue Powered Static Site Generator',
-      avatar: 'https://vitepress.dev/vitepress-logo-large.webp',
-      url: 'https://vitepress.dev/'
-    }
-  ],
   // 文章默认作者
-  author: '粥里有勺糖',
+  author: 'witerth',
   // 评论
   comment: {
     repo: 'ATQQ/sugar-blog',
@@ -172,30 +157,30 @@ export const blogTheme = getThemeConfig({
     categoryId: 'DIC_kwDODmEcc84COVc6',
     inputPosition: 'top'
   },
-  popover: {
-    title: '公告',
-    body: [
-      {
-        type: 'text',
-        content: 'QQ交流群：681489336 🎉🎉'
-      },
-      { type: 'text', content: '👇公众号👇---👇 微信 👇' },
-      {
-        type: 'image',
-        src: 'https://img.cdn.sugarat.top/mdImg/MTYxNTAxODc2NTIxMA==615018765210'
-      },
-      {
-        type: 'text',
-        content: '欢迎大家加群&私信交流'
-      },
-      {
-        type: 'button',
-        content: '博客',
-        link: 'https://sugarat.top'
-      }
-    ],
-    duration: 0
-  },
+  // popover: {
+  //   title: '公告',
+  //   body: [
+  //     {
+  //       type: 'text',
+  //       content: 'QQ交流群：681489336 🎉🎉'
+  //     },
+  //     { type: 'text', content: '👇公众号👇---👇 微信 👇' },
+  //     {
+  //       type: 'image',
+  //       src: 'https://img.cdn.sugarat.top/mdImg/MTYxNTAxODc2NTIxMA==615018765210'
+  //     },
+  //     {
+  //       type: 'text',
+  //       content: '欢迎大家加群&私信交流'
+  //     },
+  //     {
+  //       type: 'button',
+  //       content: '博客',
+  //       link: 'https://sugarat.top'
+  //     }
+  //   ],
+  //   duration: 0
+  // },
   search: {
     mode: 'pagefind',
     btnPlaceholder: 'Search',

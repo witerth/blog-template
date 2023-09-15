@@ -1,7 +1,8 @@
 {
-	"name": "@blog/theme",
-	"version": "0.1.45",
-	"description": "简约风的 Vitepress 博客主题，sugarat vitepress blog theme",
+	"name": "witerth",
+	"version": "0.0.1",
+	"description": "custom vitepress blog theme",
+	"author": "witerth",
 	"main": "src/index.ts",
 	"exports": {
 		"./node": {
@@ -17,21 +18,11 @@
 		"node.js",
 		"node.d.ts"
 	],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/ATQQ/sugar-blog.git"
-	},
 	"keywords": [
 		"vitepress",
-		"theme",
-		"粥里有勺糖"
+		"theme"
 	],
-	"author": "sugar",
 	"license": "MIT",
-	"homepage": "https://theme.sugarat.top",
-	"bugs": {
-		"url": "https://github.com/ATQQ/sugar-blog/issues"
-	},
 	"scripts": {
 		"dev": "npm run build:node && npm run dev:docs",
 		"dev:docs": "vitepress dev docs",
