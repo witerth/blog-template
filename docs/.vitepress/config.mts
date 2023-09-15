@@ -11,6 +11,7 @@ export default defineConfig({
   extends: blogTheme,
   lang: 'zh-cn',
   title: 'witerth',
+  titleTemplate: 'witerth的个人小站',
   description: 'witerth的个人小站',
   head: [...extraHead],
   vite: {

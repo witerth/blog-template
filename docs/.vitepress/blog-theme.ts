@@ -193,7 +193,7 @@ export const blogTheme = getThemeConfig({
 })
 
 export const extraHead: any =
-  process.env.NODE_ENV === 'production'
+  (process.env.NODE_ENV === 'production'
     ? [
       [
         'script',
@@ -209,4 +209,10 @@ export const extraHead: any =
         'LA.init({id:"Jyzk2AcXA3JsYbrG",ck:"Jyzk2AcXA3JsYbrG",hashMode:true})'
       ]
     ]
-    : []
+    : []).concat(
+      [
+        [
+          'link', { rel: 'icon', href: '/w.png' }
+        ]
+      ]
+    )

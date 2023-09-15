@@ -17,3 +17,5 @@ blog:
   inspiringTimeout: 3000
   pageSize: 7
 ---
+
+# home
