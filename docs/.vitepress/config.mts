@@ -96,12 +96,12 @@ export default defineConfig({
     socialLinks: [
       {
         icon: 'github',
-        link: 'https://github.com/ATQQ/sugar-blog/tree/master/packages/theme'
+        link: 'https://github.com/witerth/blog-template'
       }
     ],
     editLink: {
       pattern:
-        'https://github.com/ATQQ/sugar-blog/tree/master/packages/theme/docs/:path',
+        'https://github.com/witerth/blog-template/tree/main/docs/:path',
       text: '去 GitHub 上编辑内容'
     },
     lastUpdatedText: '上次更新于'
