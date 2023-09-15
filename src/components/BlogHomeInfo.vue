@@ -3,6 +3,8 @@ import BlogHomeOverview from './BlogHomeOverview.vue'
 import BlogHotArticle from './BlogHotArticle.vue'
 import BlogHomeTags from './BlogHomeTags.vue'
 import BlogFriendLink from './BlogFriendLink.vue'
+import { useActiveTag } from "../composables/config/blog";
+const activeTag = useActiveTag()
 </script>
 
 <template>
@@ -17,7 +19,7 @@ import BlogFriendLink from './BlogFriendLink.vue'
     <BlogFriendLink />
 
     <!-- 标签 -->
-    <BlogHomeTags />
+    <BlogHomeTags v-if="!activeTag.label"/>
   </div>
 </template>
 
