@@ -51,3 +51,16 @@
     }
   }
 }
+
+
+// el 的翻页组件
+.el-pagination {
+    .btn-prev,
+    .el-pager li.number:not(.is-active),
+    .btn-next {
+        background: var(--vp-c-bg) !important;
+        color: var(--vp-c-text-1);
+        font-weight: 500;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1)
+    }
+}
