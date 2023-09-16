@@ -118,6 +118,7 @@ h1 {
 }
 
 .inspiring-wrapper {
+  user-select: none;
   margin: 16px 0;
   height: 24px;
   width: auto;
