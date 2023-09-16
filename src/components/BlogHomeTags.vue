@@ -6,35 +6,37 @@
         <TagIcon class="mr-2"></TagIcon>
         所有标签</span
       >
-      <span
-        v-if="activeTag.label"
-        :type="(activeTag.type as any)"
-        :effect="colorMode"
-        closable
-        @close="handleCloseTag"
-        class="flex tag-link active"
-      >
-        #
-        {{ activeTag.label }}
-      </span>
+      <div class="flex">
+        <span
+          v-if="activeTag.label"
+          :type="(activeTag.type as any)"
+          :effect="colorMode"
+          closable
+          @close="handleCloseTag"
+          class="flex tag-link active"
+        >
+          #
+          {{ activeTag.label }}
+        </span>
+      </div>
     </div>
     <!-- 标签列表 -->
     <ul class="tag-list">
       <li
-        v-for="(tag, idx) in tags"
-        :key="tag"
-        :class="{ active: activeTag.label === tag }"
+        v-for="(item, idx) in tags"
+        :key="item.tag"
+        :class="{ active: activeTag.label === item.tag }"
       >
         <el-tag
           :type="tagType[idx % tagType.length]"
-          @click="handleTagClick(tag, tagType[idx % tagType.length])"
+          @click="handleTagClick(item.tag, tagType[idx % tagType.length])"
           :effect="colorMode"
         >
           <TagBlodIcon
-            v-if="activeTag.label === tag"
+            v-if="activeTag.label === item.tag"
             class="mr-1"
           ></TagBlodIcon>
-          {{ tag }}
+          {{ item.tag }}({{ item.count }})
         </el-tag>
       </li>
     </ul>
@@ -56,7 +58,16 @@ import {
 
 const docs = useArticles();
 const tags = computed(() => {
-  return [...new Set(docs.value.map((v) => v.meta.tag || []).flat(3))];
+  const allDocTag = docs.value
+    .map((v) => v.meta.tag || [])
+    .flat(Infinity) as string[];
+
+  // 去重并统计每个标签的文章数量
+  const docCountMap: any = {};
+  for (const t of allDocTag) {
+    docCountMap[t] = docCountMap[t] ? docCountMap[t] + 1 : 1;
+  }
+  return Object.entries(docCountMap).map(([k, v]) => ({ tag: k, count: v }));
 });
 
 const activeTag = useActiveTag();
@@ -82,7 +93,7 @@ const location = useBrowserLocation();
 
 const handleTagClick = (tag: string, type: string) => {
   if (tag === activeTag.value.label) {
-    // handleCloseTag();
+    handleCloseTag();
     return;
   }
   router.go(
