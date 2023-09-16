@@ -12,7 +12,7 @@
   <div class="meta-des" ref="$des" id="hack-article-des">
     <!-- TODO：是否需要原创？转载等标签，理论上可以添加标签解决，可以参考 charles7c -->
     <span v-if="author && !hiddenAuthor" class="author">
-      <el-icon title="本文作者"><UserFilled /></el-icon>
+      <img src="../styles/logo.png" alt="本文作者renkin" class="profile">
       <a
         class="link"
         :href="currentAuthorInfo.url"
@@ -44,7 +44,6 @@ import { useData, useRoute } from "vitepress";
 import { computed, onMounted, ref, watch } from "vue";
 import { ElIcon } from "element-plus";
 import {
-  UserFilled,
   Clock,
   EditPen,
   AlarmClock,
@@ -196,4 +195,5 @@ watch(
     }
   }
 }
+
 </style>

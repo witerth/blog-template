@@ -13,7 +13,17 @@
         <!-- 标题 -->
         <p class="title" v-if="!inMobile">{{ title }}</p>
         <div class="blog-meta">
-          <span class="split" v-if="author">{{ author }}</span>
+          <span class="split" v-if="author">
+            <span class="author ">
+              <img
+                src="../styles/logo.png"
+                alt="本文作者renkin"
+                class="profile"
+              />
+
+              {{ author }}
+            </span></span
+          >
           <span class="split">{{ showTime }}</span>
         </div>
         <div class="hr"></div>
@@ -166,10 +176,8 @@ const showTime = computed(() => {
   color: var(--meta-font-color);
   padding: 4px;
   padding-bottom: 0;
-  // padding-bottom: 6px;
-  // margin-bottom: 18px;
-
-  // border-bottom: 1px solid var(--vp-c-brand-2);
+  display: flex;
+  align-items: center;
 }
 .description {
   color: var(--description-font-color);

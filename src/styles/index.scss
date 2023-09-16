@@ -179,3 +179,12 @@ div.VPPluginSearch-search-item:hover {
   border-radius: 1px;
   border-bottom: 1px solid rgba(51, 51, 51, 0.1);
 }
+
+.author{ 
+  display: inline-flex;
+  align-items: center;
+  img.profile {
+  height: 1.2em;
+  border-radius: 50%;
+  margin-right: 4px !important;
+}}
