@@ -74,48 +74,54 @@ export default defineConfig({
     },
     nav: [
       {
-        text: `v${packageJSON.version}`,
-        link: '/changelog'
+        text: `关于我`,
+        link: '/aboutme'
       },
       {
-        text: '个人作品展示',
-        link: '/work'
-      },
-      {
-        text: '线上作品',
+        text: '重学前端',
         items: [
           {
-            text: '轻取(文件收集)',
-            link: 'https://ep2.sugarat.top'
-          },
-          {
-            text: '个人图床',
-            link: 'https://imgbed.sugarat.top'
-          },
-          {
-            text: '考勤小程序',
-            link: 'https://hdkq.sugarat.top/'
-          },
-          {
-            text: '时光恋人',
-            link: 'https://lover.sugarat.top'
-          },
-          {
-            text: '在线简历生成',
-            link: 'https://resume.sugarat.top/'
+            text: "Javascript",
+            link:"/重学前端/javascript/"
           }
         ]
-      }
+      },
+      // {
+      //   text: '线上作品',
+      //   items: [
+      //     {
+      //       text: '轻取(文件收集)',
+      //       link: 'https://ep2.sugarat.top'
+      //     },
+      //     {
+      //       text: '个人图床',
+      //       link: 'https://imgbed.sugarat.top'
+      //     },
+      //     {
+      //       text: '考勤小程序',
+      //       link: 'https://hdkq.sugarat.top/'
+      //     },
+      //     {
+      //       text: '时光恋人',
+      //       link: 'https://lover.sugarat.top'
+      //     },
+      //     {
+      //       text: '在线简历生成',
+      //       link: 'https://resume.sugarat.top/'
+      //     }
+      //   ]
+      // }
     ],
     socialLinks: [
       {
         icon: 'github',
-        link: 'https://github.com/ATQQ/sugar-blog/tree/master/packages/theme'
+        link: 'https://github.com/rennzhang'
       }
     ],
     editLink: {
+      // https://github.com/rennzhang/blog/blob/main/docs/changelog.md
       pattern:
-        'https://github.com/ATQQ/sugar-blog/tree/master/packages/theme/docs/:path',
+        'https://github.com/rennzhang/blog/blob/main/docs/:path',
       text: '去 GitHub 上编辑内容'
     },
     lastUpdatedText: '上次更新于'

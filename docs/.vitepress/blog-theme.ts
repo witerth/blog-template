@@ -13,10 +13,10 @@ export const workConfig: Theme.UserWorks = {
         start: '2023/01/29'
       },
       github: {
-        owner: 'ATQQ',
-        repo: 'sugar-blog',
-        branch: 'master',
-        path: 'packages/theme'
+        owner: 'rennzhang',
+        repo: 'blog',
+        branch: 'main',
+        path: 'docs'
       },
       status: {
         text: '积级维护'
