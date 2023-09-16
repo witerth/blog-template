@@ -95,7 +95,7 @@ export function getArticles(cfg?: Partial<Theme.BlogConfig>) {
         ])
 
       // 获取摘要信息
-      const wordCount = 100
+      const wordCount = 200
       meta.description =
         meta.description || getTextSummary(fileContent, wordCount)
 

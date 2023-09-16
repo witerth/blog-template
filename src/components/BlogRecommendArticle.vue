@@ -133,24 +133,6 @@ const showChangeBtn = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-.card {
-  position: relative;
-  margin: 0 auto 10px;
-  padding: 10px;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 0.25rem;
-  box-shadow: var(--box-shadow);
-  box-sizing: border-box;
-  transition: all 0.3s;
-  background-color: rgba(var(--bg-gradient));
-  display: flex;
-
-  &:hover {
-    box-shadow: var(--box-shadow-hover);
-  }
-}
-
 .recommend {
   flex-direction: column;
   padding: v-bind(recommendPadding);
@@ -202,19 +184,4 @@ const showChangeBtn = computed(() => {
   }
 }
 
-.card-header {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  .title {
-    font-size: 16px;
-  }
-}
-.empty-text {
-  padding: 6px;
-  font-size: 14px;
-  text-align: center;
-}
 </style>

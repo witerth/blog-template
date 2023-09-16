@@ -121,6 +121,8 @@ h1 {
   margin: 16px 0;
   height: 24px;
   width: auto;
+  color: var(--vp-c-brand-3);
+  font-family: cursive;
   h2 {
     animation: fade-in 0.5s ease-in-out;
     cursor: pointer;

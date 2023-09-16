@@ -2,7 +2,7 @@
   <div class="card friend-wrapper" v-if="friendList?.length">
     <!-- 头部 -->
     <div class="card-header">
-      <span class="title">🤝 友情链接</span>
+      <span class="title"><HandshakeIcon class="mr-2"></HandshakeIcon> 友情链接</span>
     </div>
     <!-- 文章列表 -->
     <ol class="friend-list">
@@ -20,6 +20,7 @@
 </template>
 
 <script lang="ts" setup>
+import HandshakeIcon from "~icons/mdi/handshake-outline"
 import { ElAvatar } from 'element-plus'
 import { useDark } from '@vueuse/core'
 import { computed } from 'vue'
@@ -50,34 +51,6 @@ const friendList = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-.card {
-  position: relative;
-  margin: 0 auto 10px;
-  padding: 10px;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 0.25rem;
-  box-shadow: var(--box-shadow);
-  box-sizing: border-box;
-  transition: all 0.3s;
-  background-color: rgba(var(--bg-gradient));
-  display: flex;
-
-  &:hover {
-    box-shadow: var(--box-shadow-hover);
-  }
-}
-
-.card-header {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-
-  .title {
-    font-size: 12px;
-  }
-}
 
 .friend-wrapper {
   flex-direction: column;

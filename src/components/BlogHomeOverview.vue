@@ -54,8 +54,8 @@ const currentWeek = computed(() => {
   box-shadow: var(--box-shadow);
   box-sizing: border-box;
   transition: all 0.3s;
-  background-color: rgba(var(--bg-gradient));
   display: flex;
+  background-color: var(--vp-c-bg);
 
   &:hover {
     box-shadow: var(--box-shadow-hover);
@@ -83,6 +83,7 @@ const currentWeek = computed(() => {
   align-items: center;
   position: relative;
   margin: 0 10px;
+
 
   .count {
     font-size: 18px;

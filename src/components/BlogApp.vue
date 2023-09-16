@@ -142,6 +142,9 @@ const { Layout } = Theme;
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  :deep(.card),:deep(.blog-item) {
+    background: var(--vp-c-bg);
+  }
 }
 
 .blog-list-wrapper {

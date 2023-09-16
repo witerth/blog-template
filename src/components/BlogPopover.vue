@@ -63,7 +63,7 @@ onMounted(() => {
 
 	// >= 0 每次都展示，区别是否自动消失
 	if (Number(popoverProps?.duration ?? "") >= 0) {
-		show.value = true;
+		// show.value = true;
 		if (popoverProps?.duration) {
 			setTimeout(() => {
 				show.value = false;

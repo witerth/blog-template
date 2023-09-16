@@ -433,7 +433,7 @@ function getArticles(cfg) {
     meta.tag = [meta.tag || []].flat().concat([
       .../* @__PURE__ */ new Set([...meta.categories || [], ...meta.tags || []])
     ]);
-    const wordCount = 100;
+    const wordCount = 200;
     meta.description = meta.description || getTextSummary(fileContent, wordCount);
     meta.cover = meta.cover ?? (fileContent.match(/[!]\[.*?\]\((https:\/\/.+)\)/)?.[1] || "");
     if (meta.publish === false) {

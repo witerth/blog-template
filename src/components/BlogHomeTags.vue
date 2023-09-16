@@ -117,39 +117,6 @@ watch(
 </script>
 <style scoped lang="scss" src="../styles/theme/tags.scss"></style>
 <style lang="scss" scoped>
-.card {
-  position: relative;
-  margin: 0 auto 10px;
-  padding: 12px 18px;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 0.25rem;
-  box-shadow: var(--box-shadow);
-  box-sizing: border-box;
-  transition: all 0.3s;
-  background-color: rgba(var(--bg-gradient));
-  display: flex;
-
-  &:hover {
-    box-shadow: var(--box-shadow-hover);
-  }
-}
-.card-header {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid var(--vp-c-gutter);
-  padding-bottom: 12px;
-  padding-top: 4px;
-
-  .title {
-    font-size: 18px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-  }
-}
 
 .tags {
   flex-direction: column;
