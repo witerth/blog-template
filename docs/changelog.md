@@ -1,7 +1,7 @@
 ---
 title: 更新日志
 description: 最近更新 v0.1.43 💯：① 适配 rc11 版本 ② 内置多套主题色一键切换 ③ 统一博客整体的颜色 ④ 一系列bug修复和优化
-author: 粥里有勺糖
+author: Renkin
 top: 2
 tag: 日志
 publish: true

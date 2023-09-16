@@ -11,8 +11,8 @@ import { SearchPlugin } from 'vitepress-plugin-search'
 export default defineConfig({
   extends: blogTheme,
   lang: 'zh-cn',
-  title: '@blog/theme',
-  description: '粥里有勺糖的博客主题，基于 vitepress 实现',
+  title: 'Renkin',
+  description: 'Renkin 的扯淡日记',
   head: [...extraHead],
   vite: {
     // configFile:"./vite.config.ts",
@@ -69,7 +69,7 @@ export default defineConfig({
     },
     footer: {
       message: `Power By <a target="_blank" href="https://theme.sugarat.top/"> @blog/theme@${packageJSON.version} </a>`,
-      copyright: 'MIT License | Copyright © 粥里有勺糖'
+      copyright: 'MIT License | Copyright © Renkin'
     },
     nav: [
       {

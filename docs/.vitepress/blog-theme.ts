@@ -139,7 +139,7 @@ const baseUrl = 'https://theme.sugarat.top'
 const RSS: Theme.RSSOptions = {
   title: '@blog/theme',
   baseUrl,
-  copyright: 'Copyright (c) 2023-present, 粥里有勺糖',
+  copyright: 'Copyright (c) 2023-present, Renkin',
 }
 
 export const blogTheme = getThemeConfig({
@@ -149,7 +149,7 @@ export const blogTheme = getThemeConfig({
   },
   friend: [
     {
-      nickname: '粥里有勺糖',
+      nickname: 'Renkin',
       des: '你的指尖,拥有改变世界的力量',
       avatar:
         'https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTE2NzAzMA==674995167030',
@@ -163,7 +163,7 @@ export const blogTheme = getThemeConfig({
     }
   ],
   // 文章默认作者
-  author: '粥里有勺糖',
+  author: 'Renkin',
   // 评论
   comment: {
     repo: 'rennzhang/blog',

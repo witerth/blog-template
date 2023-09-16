@@ -147,7 +147,7 @@ const blogTheme = getThemeConfig({
 const blogTheme = getThemeConfig({
   home: {
     name: '@blog/theme',
-    motto: '粥里有勺糖的博客主题',
+    motto: 'Renkin的博客主题',
     inspiring: '基于 Vitepress 定制的主题🎨',
     pageSize: 2
   }
@@ -661,7 +661,7 @@ export namespace BlogPopover {
 const blogTheme = getThemeConfig({
   friend: [
     {
-      nickname: '粥里有勺糖',
+      nickname: 'Renkin',
       des: '你的指尖用于改变世界的力量',
       avatar:
         'https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTE2NzAzMA==674995167030',
@@ -702,7 +702,7 @@ const blogTheme = getThemeConfig({
       // 省略其他配置项 
       avatar: {
         // 单独设置 alt
-        alt: '粥里有勺糖23',
+        alt: 'Renkin23',
         src:
           'https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTI2NzY1Ng==674995267656'
       }
@@ -734,7 +734,7 @@ const blogTheme = getThemeConfig({
 const blogTheme = getThemeConfig({
   authorList: [
     {
-      nickname: '粥里有勺糖',
+      nickname: 'Renkin',
       url: 'https://sugarat.top/aboutme.html',
       des: '你的指尖,拥有改变世界的力量'
     }
@@ -807,7 +807,7 @@ const baseUrl = 'https://theme.sugarat.top'
 const RSS: Theme.RSSOptions = {
   title: '@blog/theme',
   baseUrl,
-  copyright: 'Copyright (c) 2023-present, 粥里有勺糖',
+  copyright: 'Copyright (c) 2023-present, Renkin',
 }
 
 const blogTheme = getThemeConfig({
@@ -825,7 +825,7 @@ const RSS: Theme.RSSOptions = {
   language: 'zh-cn',
   image: 'https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTE2NzAzMA==674995167030',
   favicon: 'https://theme.sugarat.top/favicon.ico',
-  copyright: 'Copyright (c) 2023-present, 粥里有勺糖',
+  copyright: 'Copyright (c) 2023-present, Renkin',
   url: `${baseUrl}/feed.rss`
 }
 
