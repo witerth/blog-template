@@ -6,26 +6,35 @@
         <TagIcon class="mr-2"></TagIcon>
         所有标签</span
       >
-      <el-tag
+      <span
         v-if="activeTag.label"
         :type="(activeTag.type as any)"
         :effect="colorMode"
         closable
         @close="handleCloseTag"
+        class="flex tag-link active"
       >
-      <TagBlodIcon class="mr-1"></TagBlodIcon>
-      {{ activeTag.label }}
-      </el-tag>
+        #
+        {{ activeTag.label }}
+      </span>
     </div>
     <!-- 标签列表 -->
     <ul class="tag-list">
-      <li v-for="(tag, idx) in tags" :key="tag">
+      <li
+        v-for="(tag, idx) in tags"
+        :key="tag"
+        :class="{ active: activeTag.label === tag }"
+      >
         <el-tag
           :type="tagType[idx % tagType.length]"
           @click="handleTagClick(tag, tagType[idx % tagType.length])"
           :effect="colorMode"
         >
-        {{ tag }}
+          <TagBlodIcon
+            v-if="activeTag.label === tag"
+            class="mr-1"
+          ></TagBlodIcon>
+          {{ tag }}
         </el-tag>
       </li>
     </ul>
@@ -36,7 +45,7 @@
 import { computed, watch } from "vue";
 import { ElTag } from "element-plus";
 import { useBrowserLocation, useDark } from "@vueuse/core";
-import { useRouter } from "vitepress";
+import { useRoute, useRouter } from "vitepress";
 import TagIcon from "~icons/solar/tag-linear";
 import TagBlodIcon from "~icons/solar/tag-bold";
 import {
@@ -47,7 +56,7 @@ import {
 
 const docs = useArticles();
 const tags = computed(() => {
-  return [...new Set(docs.value.map((v) => v.meta.tag || []).flat(3))]
+  return [...new Set(docs.value.map((v) => v.meta.tag || []).flat(3))];
 });
 
 const activeTag = useActiveTag();
@@ -73,7 +82,7 @@ const location = useBrowserLocation();
 
 const handleTagClick = (tag: string, type: string) => {
   if (tag === activeTag.value.label) {
-    handleCloseTag();
+    // handleCloseTag();
     return;
   }
   router.go(
@@ -82,24 +91,20 @@ const handleTagClick = (tag: string, type: string) => {
   activeTag.value.type = type;
   activeTag.value.label = tag;
   currentPage.value = 1;
-
 };
-
+const route = useRoute();
 watch(
-  location,
-  () => {
-    if (location.value.href) {
-      const url = new URL(location.value.href!);
-      activeTag.value.type = url.searchParams.get("type") || "";
-      activeTag.value.label = url.searchParams.get("tag") || "";
-    }
+  route,
+  (val) => {
+    const url = new URL(window.location.href!);
+    activeTag.value.label = url.searchParams.get("tag") || "";
   },
   {
     immediate: true,
   }
 );
 </script>
-
+<style scoped lang="scss" src="../styles/theme/tags.scss"></style>
 <style lang="scss" scoped>
 .card {
   position: relative;
@@ -140,30 +145,30 @@ watch(
 }
 
 :deep(.el-tag__content) {
-  
   display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-
+  align-items: center;
+  flex-wrap: nowrap;
 }
 .tag-list {
   display: flex;
   flex-wrap: wrap;
   margin-top: 10px;
+  transition: 0.3s all ease;
 
   li {
     margin-right: 10px;
     margin-bottom: 10px;
     cursor: pointer;
-  }
-  &:hover {
-    .el-tag:hover {
-      transition: all 0.3s ease-in-out;
-      // margin-top: -4px;
-      font-weight: 500;
-      transform: scale(1.5);
-      box-shadow: var(--box-shadow-hover);
-      text-decoration: underline;
+    transform: scale(0.9);
+    transition: 0.3s all ease;
+
+    &:hover,
+    &.active {
+      .el-tag {
+        font-weight: 500;
+        transform: scale(1.2);
+        box-shadow: var(--box-shadow-hover);
+      }
     }
   }
 }

@@ -1,0 +1,44 @@
+.tags {
+    display: flex;
+    align-items: center;
+
+  }
+  .tag-link {
+    color: var(--vp-c-text-2);
+
+    &.active {
+      background: var(--vp-c-brand-1)
+        linear-gradient(to top right, transparent, #ffffff, transparent) no-repeat 0
+        0;
+      background-size: 20% 100%;
+      background-position: 0 0;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: var(--vp-c-brand-1);
+      font-weight: 900;
+      font-size: 1.2em;
+      color: transparent;
+      animation: shine 2s infinite;
+    }
+    &:hover {
+      color: var(--vp-c-brand-1);
+      cursor: pointer;
+      text-decoration: underline dotted;
+    }
+  }
+  a.tag-link:not(:last-child) {
+    &::after {
+      content: "·";
+      display: inline-block;
+      padding: 0 4px;
+    }
+  }
+  @keyframes shine {
+    from {
+      background-position: 0% 0%;
+    }
+  
+    to {
+      background-position: 100% 100%;
+    }
+  }

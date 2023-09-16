@@ -29,17 +29,7 @@
       <el-icon :title="timeTitle"><Clock /></el-icon>
       {{ publishDate }}
     </span>
-    <span v-if="tags.length" class="tags">
-      <el-icon :title="timeTitle"><CollectionTag /></el-icon>
-      <a
-        class="link"
-        :href="`/?tag=${tag}`"
-        v-for="tag in tags"
-        :key="tag"
-        @click="activeTag.label = tag"
-        >{{ tag }}
-      </a>
-    </span>
+    <ArticleTags></ArticleTags>
     <!-- 封面展示 -->
     <ClientOnly>
       <BlogDocCover />
@@ -58,31 +48,16 @@ import {
   Clock,
   EditPen,
   AlarmClock,
-  CollectionTag,
 } from "@element-plus/icons-vue";
-import {
-  useBlogConfig,
-  useCurrentArticle,
-  useActiveTag,
-} from "../composables/config/blog";
+import { useBlogConfig, useCurrentArticle } from "../composables/config/blog";
 import countWord, { formatShowDate } from "../utils/client";
 import { Theme } from "../composables/config";
 import BlogDocCover from "./BlogDocCover.vue";
+import ArticleTags from "./ArticleTags.vue";
 
-const activeTag = useActiveTag();
 const { article, authorList } = useBlogConfig();
 const { frontmatter } = useData();
-const tags = computed(() => {
-  const { tag, tags, categories } = frontmatter.value;
-  return [
-    ...new Set(
-      []
-        .concat(tag, tags, categories)
-        .flat()
-        .filter((v) => !!v)
-    ),
-  ];
-});
+
 const showAnalyze = computed(
   () => frontmatter.value?.readingTime ?? article?.readingTime ?? true
 );
@@ -218,15 +193,6 @@ watch(
     &:hover {
       color: var(--vp-c-brand-1);
       cursor: pointer;
-    }
-  }
-}
-.tags {
-  a.link:not(:last-child) {
-    &::after {
-      content: "·";
-      display: inline-block;
-      padding: 0 4px;
     }
   }
 }

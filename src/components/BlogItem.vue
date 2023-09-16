@@ -19,7 +19,9 @@
         <div class="badge-list" v-if="!inMobile">
           <span class="split" v-if="author">{{ author }}</span>
           <span class="split">{{ showTime }}</span>
-          <span class="split" v-if="tag?.length">{{ tag.join(' · ') }}</span>
+          <span class="split" v-if="tag?.length">
+            <ArticleTags :tags="tag"></ArticleTags>
+          </span>
         </div>
       </div>
       <!-- 右侧封面图 -->
@@ -33,35 +35,39 @@
     <div class="badge-list" v-if="inMobile">
       <span class="split" v-if="author">{{ author }}</span>
       <span class="split">{{ showTime }}</span>
-      <span class="split" v-if="tag?.length">{{ tag.join(' · ') }}</span>
+      <span class="split" v-if="tag?.length">
+        <ArticleTags :tags="tag"></ArticleTags>
+      </span>
     </div>
   </a>
 </template>
 
 <script lang="ts" setup>
-import { withBase } from 'vitepress'
-import { computed } from 'vue'
-import { useWindowSize } from '@vueuse/core'
-import { formatShowDate } from '../utils/client'
+import ArticleTags from "./ArticleTags.vue";
 
-const { width } = useWindowSize()
-const inMobile = computed(() => width.value <= 500)
+import { withBase } from "vitepress";
+import { computed } from "vue";
+import { useWindowSize } from "@vueuse/core";
+import { formatShowDate } from "../utils/client";
+
+const { width } = useWindowSize();
+const inMobile = computed(() => width.value <= 500);
 const props = defineProps<{
-  route: string
-  title: string
-  date: string | Date
-  sticky?: number
-  description?: string
-  descriptionHTML?: string
-  tag?: string[]
-  author?: string
-  cover?: string | boolean
-  pin?: number
-}>()
+  route: string;
+  title: string;
+  date: string | Date;
+  sticky?: number;
+  description?: string;
+  descriptionHTML?: string;
+  tag?: string[];
+  author?: string;
+  cover?: string | boolean;
+  pin?: number;
+}>();
 
 const showTime = computed(() => {
-  return formatShowDate(props.date)
-})
+  return formatShowDate(props.date);
+});
 
 // function isWrappedWithPreventDefault(element: HTMLElement) {
 //   let parent = element.parentElement
@@ -91,7 +97,7 @@ const showTime = computed(() => {
   opacity: 1;
 }
 .blog-item .pin::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 120%;
   height: 30px;
@@ -157,9 +163,16 @@ const showTime = computed(() => {
   font-size: 13px;
   color: var(--badge-font-color);
   margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  .split {
+    display: inline-flex;
+    align-items: center;
+  }
   .split:not(:last-child) {
     &::after {
-      content: '';
+      content: "";
       display: inline-block;
       width: 1px;
       height: 8px;
