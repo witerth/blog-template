@@ -166,10 +166,10 @@ export const blogTheme = getThemeConfig({
   author: '粥里有勺糖',
   // 评论
   comment: {
-    repo: 'ATQQ/sugar-blog',
-    repoId: 'MDEwOlJlcG9zaXRvcnkyNDEyNDUyOTk',
+    repo: 'rennzhang/blog',
+    repoId: 'R_kgDOKTkGhQ',
     category: 'Announcements',
-    categoryId: 'DIC_kwDODmEcc84COVc6',
+    categoryId: 'DIC_kwDOKTkGhc4CZXQD',
     inputPosition: 'top'
   },
   popover: {
@@ -197,7 +197,7 @@ export const blogTheme = getThemeConfig({
     duration: 0
   },
   search: {
-    mode: 'pagefind',
+    mode: false,
     btnPlaceholder: 'Search',
     placeholder: 'Search Docs',
     emptyText: 'No results found',

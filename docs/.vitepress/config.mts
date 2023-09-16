@@ -7,6 +7,7 @@ import AutoImport from "unplugin-auto-import/vite";
 import UnoCSS from 'unocss/vite'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from "unplugin-icons/resolver";
+import { SearchPlugin } from 'vitepress-plugin-search'
 export default defineConfig({
   extends: blogTheme,
   lang: 'zh-cn',
@@ -27,6 +28,15 @@ export default defineConfig({
       exclude: ['vitepress-plugin-tabs']
     },
     plugins: [
+      SearchPlugin({
+        previewLength: 62,
+        buttonLabel: "Search",
+        placeholder: "Search docs",
+        allow: [],
+        ignore: [],
+        // encode: false,
+        tokenize: "full"
+      }),
       Icons(),
       UnoCSS(),
       // https://github.com/antfu/unplugin-auto-import
@@ -48,12 +58,15 @@ export default defineConfig({
       // https://github.com/antfu/vite-plugin-components
       Components({
         dts: true,
-        dirs: ["./src/components"],
+        dirs: ["./src/components","./","src"],
         resolvers: [IconsResolver()],
       }),
     ],
   },
   themeConfig: {
+    search: {
+      provider: 'local',
+    },
     footer: {
       message: `Power By <a target="_blank" href="https://theme.sugarat.top/"> @blog/theme@${packageJSON.version} </a>`,
       copyright: 'MIT License | Copyright © 粥里有勺糖'
