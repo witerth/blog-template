@@ -20,7 +20,7 @@
     </div>
     <!-- 文章列表 -->
     <ol class="recommend-container" v-if="currentWikiData.length">
-      <li v-for="(v, idx) in currentWikiData" :key="v.route">
+      <li v-for="(v, idx) in currentWikiData?.slice(0,5)" :key="v.route">
         <!-- 序号 -->
         <i class="num">{{ idx + 1 }}</i>
         <!-- 简介 -->
