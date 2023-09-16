@@ -21,3 +21,12 @@ html[theme].dark {
   --vp-c-brand-3: var(--vp-c-green-darker);
   --vp-c-brand-soft: rgba(4, 120, 87, 0.25);
 } */
+/* :root {
+  --vp-code-block-bg: #f7fcff;
+  --vp-code-block-border: #f3f3f3;
+}
+:root.dark {
+  --vp-code-block-bg: var(--vp-c-bg-alt);
+  --vp-code-block-border: transparent;
+
+} */

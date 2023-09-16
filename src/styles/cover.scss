@@ -2,6 +2,11 @@
   padding: 10px 12px 10px 2px !important;
 }
 
+// VPNavBar
+.VPNavBar {
+  transition: 0.5s all;
+}
+
 // 覆盖默认的搜索框样式（flexsearch）
 @media (min-width: 768px) {
   .VPNavBar.top {
@@ -36,6 +41,8 @@
 }
 @media (max-width: 768px) {
   .VPPluginSearch-modal-back {
+    background: #545454b3 !important;
+    overflow: hidden;
     div.VPPluginSearch-modal {
       max-width: 95%;
       border-radius: 4px;
@@ -52,15 +59,18 @@
   }
 }
 
-
 // el 的翻页组件
 .el-pagination {
-    .btn-prev,
-    .el-pager li.number:not(.is-active),
-    .btn-next {
-        background: var(--vp-c-bg) !important;
-        color: var(--vp-c-text-1);
-        font-weight: 500;
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1)
-    }
+  .btn-prev,
+  .el-pager li.number:not(.is-active),
+  .btn-next {
+    background: var(--vp-c-bg) !important;
+    color: var(--vp-c-text-1);
+    font-weight: 500;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  }
+}
+
+.vp-adaptive-theme {
+  border: 1px solid var(--vp-code-block-border);
 }
