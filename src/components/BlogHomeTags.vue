@@ -108,8 +108,13 @@ const route = useRoute();
 watch(
   route,
   (val) => {
+    try {
     const url = new URL(window.location.href!);
-    activeTag.value.label = url.searchParams.get("tag") || "";
+    activeTag.value.label = url?.searchParams.get("tag") || "";
+
+    } catch (error) {
+
+    }
   },
   {
     immediate: true,

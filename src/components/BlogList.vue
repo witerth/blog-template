@@ -41,7 +41,7 @@ import {
   useArticles,
   useActiveTag,
   useBlogConfig,
-  useCurrentPageNum,
+  useCurrentPageNum
 } from "../composables/config/blog";
 import { Theme } from "../composables/config";
 
@@ -61,30 +61,25 @@ const wikiList = computed(() => {
     return Number(aTop) - Number(bTop);
   });
   let data: Theme.PageData[] = [];
-  if (window.location.href.includes("tag=")) {
-    return docs.value.filter((v) =>
-      v.meta?.tags?.includes(activeTagLabel.value)
-    );
-  } else {
-    data = docs.value.filter(
-      (v) => v.meta.date && v.meta.title && !v.meta.top && !v.meta.hidden
-    );
-  }
+  try {
+    if (window.location.href.includes("tag=")) {
+      return docs.value.filter((v) => v.meta?.tags?.includes(activeTagLabel.value));
+    } else {
+      data = docs.value.filter((v) => v.meta.date && v.meta.title && !v.meta.top && !v.meta.hidden);
+    }
+  } catch (error) {}
+
   data.sort((a, b) => +new Date(b.meta.date) - +new Date(a.meta.date));
   return topList.concat(data);
 });
 
 const filterData = computed(() => {
   if (!activeTagLabel.value) return wikiList.value;
-  return wikiList.value.filter((v) =>
-    v.meta?.tags?.includes(activeTagLabel.value)
-  );
+  return wikiList.value.filter((v) => v.meta?.tags?.includes(activeTagLabel.value));
 });
 
 const { home } = useBlogConfig();
-const pageSize = computed(
-  () => frontmatter.value.blog?.pageSize || home?.pageSize || 6
-);
+const pageSize = computed(() => frontmatter.value.blog?.pageSize || home?.pageSize || 6);
 const currentPage = useCurrentPageNum();
 const currentWikiData = computed(() => {
   const startIdx = (currentPage.value - 1) * pageSize.value;
@@ -103,9 +98,7 @@ const handleUpdatePageNum = (current: number) => {
   const { searchParams } = new URL(window.location.href!);
   searchParams.delete(queryPageNumKey);
   searchParams.append(queryPageNumKey, String(current));
-  router.go(
-    `${location.value.origin}${router.route.path}?${searchParams.toString()}`
-  );
+  router.go(`${location.value.origin}${router.route.path}?${searchParams.toString()}`);
 };
 
 watch(
@@ -121,7 +114,7 @@ watch(
     }
   },
   {
-    immediate: true,
+    immediate: true
   }
 );
 </script>
