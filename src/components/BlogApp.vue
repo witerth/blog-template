@@ -68,22 +68,14 @@ const { Layout } = Theme;
 
     <!-- 透传默认主题的其它插槽 -->
     <!-- navbar -->
-    <template #nav-bar-title-before
-      ><slot name="nav-bar-title-before"
-    /></template>
+    <template #nav-bar-title-before><slot name="nav-bar-title-before" /></template>
     <template #nav-bar-title-after>
       <slot name="nav-bar-title-after" />
       <span class="title-after-text">的扯淡日记</span>
     </template>
-    <template #nav-bar-content-after
-      ><slot name="nav-bar-content-after"
-    /></template>
-    <template #nav-screen-content-before
-      ><slot name="nav-screen-content-before"
-    /></template>
-    <template #nav-screen-content-after
-      ><slot name="nav-screen-content-after"
-    /></template>
+    <template #nav-bar-content-after><slot name="nav-bar-content-after" /></template>
+    <template #nav-screen-content-before><slot name="nav-screen-content-before" /></template>
+    <template #nav-screen-content-after><slot name="nav-screen-content-after" /></template>
 
     <!-- sidebar -->
     <template #sidebar-nav-before><slot name="sidebar-nav-before" /></template>
@@ -96,12 +88,8 @@ const { Layout } = Theme;
     <template #home-hero-info><slot name="home-hero-info" /></template>
     <template #home-hero-image><slot name="home-hero-image" /></template>
     <template #home-hero-after><slot name="home-hero-after" /></template>
-    <template #home-features-before
-      ><slot name="home-features-before"
-    /></template>
-    <template #home-features-after
-      ><slot name="home-features-after"
-    /></template>
+    <template #home-features-before><slot name="home-features-before" /></template>
+    <template #home-features-after><slot name="home-features-after" /></template>
 
     <template #doc-footer-before><slot name="doc-footer-before" /></template>
 
@@ -110,12 +98,8 @@ const { Layout } = Theme;
 
     <template #aside-top><slot name="aside-top" /></template>
     <template #aside-bottom><slot name="aside-bottom" /></template>
-    <template #aside-outline-before
-      ><slot name="aside-outline-before"
-    /></template>
-    <template #aside-outline-after
-      ><slot name="aside-outline-after"
-    /></template>
+    <template #aside-outline-before><slot name="aside-outline-before" /></template>
+    <template #aside-outline-after><slot name="aside-outline-after" /></template>
     <template #aside-ads-before><slot name="aside-ads-before" /></template>
     <template #aside-ads-after><slot name="aside-ads-after" /></template>
   </Layout>
@@ -124,7 +108,7 @@ const { Layout } = Theme;
 .home {
   margin: 0 auto;
   padding: 20px;
-  max-width: 1126px;
+  max-width: 1280px;
 }
 
 @media screen and (min-width: 960px) {
@@ -176,14 +160,28 @@ const { Layout } = Theme;
   }
 }
 
-.VPNavBar:not(.top), 
+.VPNavBar:not(.top),
 .VPNavBar.has-sidebar {
   .title-after-text {
-  visibility: visible;
-  margin-left: 4px;
-}
+    transition: 0.7s all ease;
+
+    // visibility: visible;
+    // display: inline-block;
+    margin-left: 4px;
+    width: auto;
+  }
+  // @media (max-width: 549px) {
+  //   .title-after-text {
+  //     visibility: hidden;
+  //   }
+  // }
 }
 .title-after-text {
-  visibility: hidden;
+  // visibility: hidden;
+  width: 0;
+  overflow: hidden;
+  transition: 0.3s all ease;
+  // display: none;
+
 }
 </style>

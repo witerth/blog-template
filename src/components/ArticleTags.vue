@@ -1,7 +1,7 @@
 <template>
   <div>
-    <span v-if="tags.length" class="tags">
-      <TagIcon class="mr-1" />
+    <span v-if="tags.length" class="blog-tags">
+      
       <a
         class="tag-link"
         :class="{ active: activeTag.label === tag }"
@@ -9,7 +9,7 @@
         v-for="tag in tags"
         :key="tag"
         @click="activeTag.label = tag"
-        >{{ tag }}
+        ><TagIcon class="mr-1" />{{ tag }}
       </a>
     </span>
   </div>

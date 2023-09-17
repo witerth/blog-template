@@ -34,7 +34,7 @@ const activeTag = useActiveTag()
 
 @media screen and (min-width: 767px) {
   .blog-info {
-    max-width: 300px;
+    max-width: 360px;
   }
 }
 </style>

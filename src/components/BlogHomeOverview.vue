@@ -2,24 +2,22 @@
   <div class="card overview-data userinfo">
     <div class="userinfo">
       <div class="userinfo-outlinks">
-        <div class="mt-2 item">
-          <ElTooltip
-            effect="dark"
-            :content="copied ? 'copied' : 'Copy Email'"
-            placement="top"
-          >
+        <div class="mb-2 item">
+          <ElTooltip effect="dark" :content="copied ? 'copied' : 'Copy Email'" placement="top">
             <EmailIcon @click="copy('zr906155099@gmail.com')"></EmailIcon>
           </ElTooltip>
         </div>
         <div class="item userinfo-profile-box">
-          <a href="http://renkin.cn" title="Renkin"
-            ><img src="../styles/logo.png" alt="" class="userinfo-profile"
-          /></a>
+          <a href="http://renkin.cn" title="Renkin">
+            <img src="../styles/logo.png" alt="" class="userinfo-profile" />
+          </a>
         </div>
-        <div class="mt-2 item">
-          <a href="https://github.com/rennzhang" title="Github" target="_blank"
-            ><GithublIcon></GithublIcon
-          ></a>
+        <div class="mb-2 item">
+          <ElTooltip effect="dark" content="Github" placement="top">
+            <a href="https://github.com/rennzhang" target="_blank">
+              <GithublIcon></GithublIcon>
+            </a>
+          </ElTooltip>
         </div>
       </div>
       <div class="mt-3 hr"></div>
@@ -50,6 +48,7 @@ import { computed } from "vue";
 import { isCurrentWeek } from "../utils/client";
 import { useArticles } from "../composables/config/blog";
 import { useClipboard } from "@vueuse/core";
+import { ElTooltip } from "element-plus";
 
 const { copy, copied } = useClipboard();
 
@@ -62,9 +61,7 @@ const nowYear = new Date().getFullYear();
 const currentMonth = computed(() => {
   return notHiddenArticles.value.filter((v) => {
     const pubDate = new Date(v.meta?.date);
-    return (
-      pubDate?.getMonth() === nowMonth && pubDate.getFullYear() === nowYear
-    );
+    return pubDate?.getMonth() === nowMonth && pubDate.getFullYear() === nowYear;
   });
 });
 
@@ -94,7 +91,7 @@ const currentWeek = computed(() => {
     display: flex;
     margin-top: 20px;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-end;
     .item {
       cursor: pointer;
     }
@@ -133,6 +130,7 @@ const currentWeek = computed(() => {
   opacity: 0.8;
   height: 10px;
   background-color: var(--badge-font-color);
+  margin-top: 8px;
 }
 
 .overview-item {

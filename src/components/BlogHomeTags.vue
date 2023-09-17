@@ -1,24 +1,23 @@
 <template>
-  <div class="card tags" v-if="tags.length" data-pagefind-ignore="all">
+  <div class="card blog-item-tags" v-if="tags.length" data-pagefind-ignore="all">
     <!-- 头部 -->
     <div class="card-header">
       <span class="title">
-        <TagIcon class="mr-2"></TagIcon>
-        所有标签</span
-      >
-      <div class="flex">
-        <span
-          v-if="activeTag.label"
-          :type="(activeTag.type as any)"
-          :effect="colorMode"
-          closable
-          @close="handleCloseTag"
-          class="flex tag-link active"
-        >
-          #
-          {{ activeTag.label }}
+        <span v-if="activeTag.label" class="return-home-box">
+          <HomeIcon class="btn" @click="handleCloseTag" ></HomeIcon>|
         </span>
-      </div>
+        <TagIcon class="mr-2" v-else></TagIcon>
+        <span :class="{ 'ml-10': activeTag.label }">所有标签</span>
+      </span>
+      <a
+        v-if="activeTag.label"
+        @dblclick="handleCloseTag"
+        class="tag-link active"
+        :href="`/?tag=${activeTag.label}`"
+      >
+        <TagIcon class="mr-1" />{{ activeTag.label }}
+      </a>
+      <!-- <CloseIcon></CloseIcon> -->
     </div>
     <!-- 标签列表 -->
     <ul class="tag-list">
@@ -50,6 +49,7 @@ import { useBrowserLocation, useDark } from "@vueuse/core";
 import { useRoute, useRouter } from "vitepress";
 import TagIcon from "~icons/solar/tag-linear";
 import TagBlodIcon from "~icons/solar/tag-bold";
+import HomeIcon from "~icons/mdi/home-import-outline";
 import {
   useActiveTag,
   useArticles,
@@ -103,6 +103,7 @@ const handleTagClick = (tag: string, type: string) => {
   activeTag.value.label = tag;
   currentPage.value = 1;
 };
+
 const route = useRoute();
 watch(
   route,
@@ -117,9 +118,38 @@ watch(
 </script>
 <style scoped lang="scss" src="../styles/theme/tags.scss"></style>
 <style lang="scss" scoped>
+.return-home-box {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  left: -10px;
+  top: -14px;
+  padding: 9px;
+  padding-top: 12px;
+  &:hover{
+    .btn {
+      color: var(--vp-c-brand-1);
+      transform: rotateY(180deg);
+    }
+  }
+  .btn {
+    font-size: 22px;
+    margin-right: 4px;
+    cursor: pointer;
+    transition: 0.5s all ease;
+  }
+  @media (max-width:768px){
+    .btn {
+      color: var(--vp-c-brand-1);
+      transform: rotateY(180deg);
+    }
 
-.tags {
+  }
+}
+.blog-item-tags {
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 :deep(.el-tag__content) {
@@ -134,8 +164,8 @@ watch(
   transition: 0.3s all ease;
 
   li {
-    margin-right: 10px;
-    margin-bottom: 10px;
+    margin-right: 4px;
+    margin-bottom: 6px;
     cursor: pointer;
     transform: scale(0.9);
     transition: 0.3s all ease;
@@ -146,6 +176,12 @@ watch(
         font-weight: 500;
         transform: scale(1.2);
         box-shadow: var(--box-shadow-hover);
+      }
+      @media (max-width: 549px) {
+        .el-tag {
+          transform: scale(1);
+          text-decoration: underline ;
+        }
       }
     }
   }

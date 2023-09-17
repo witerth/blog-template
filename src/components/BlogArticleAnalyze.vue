@@ -171,11 +171,11 @@ watch(
   text-align: left;
   color: var(--vp-c-text-2);
   font-size: 14px;
-  margin-top: 10px;
+  margin-top: 24px;
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 30px;
-  padding-bottom: 20px;
+  margin-bottom: 40px;
+  padding-bottom: 10px;
   border-bottom: 1px solid var(--vp-c-divider);
   span {
     margin-right: 16px;

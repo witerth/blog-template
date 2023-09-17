@@ -1,7 +1,5 @@
 <template>
   <a class="blog-item" :href="withBase(route)">
-    <!-- <i class="pin" v-if="!!pin"></i> -->
-    <!-- <PinIcon class="pin" v-if="!!pin"></PinIcon> -->
     <!-- 标题 -->
     <p class="title" v-if="inMobile">{{ title }}</p>
     <!-- <div class="info-header">
@@ -104,15 +102,7 @@ const showTime = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-.blog-item .pin {
-  position: absolute;
-  overflow: hidden;
-  width: 30px;
-  height: 30px;
-  top: -4px;
-  left: -4px;
-  opacity: 0.5;
-}
+
 .pin-text {
   color: #7797ff;
     font-weight: 400;
@@ -121,25 +111,6 @@ const showTime = computed(() => {
     font-size: 0.88em;
     margin-right: 4px;
     line-height: 24px;
-}
-.blog-item:hover .pin {
-  opacity: 1;
-}
-.blog-item .pin::before {
-  content: "";
-  position: absolute;
-  width: 120%;
-  height: 30px;
-  background-image: linear-gradient(
-    45deg,
-    var(--blog-theme-color),
-    var(--blog-theme-color)
-  );
-  transform: rotate(-45deg) translateY(-20px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.23);
 }
 
 .blog-item {
@@ -157,7 +128,11 @@ const showTime = computed(() => {
   display: flex;
   flex-direction: column;
   &:hover {
+    transform: translate(0,-4px);
     box-shadow: var(--box-shadow-hover);
+    .title {
+      color: var(--vp-c-brand-1);
+    }
   }
 }
 .info-container {
@@ -173,7 +148,7 @@ const showTime = computed(() => {
   font-size: 24px;
   line-height: 32px;
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   // 多行换行
   overflow: hidden;
   text-overflow: ellipsis;
@@ -184,8 +159,7 @@ const showTime = computed(() => {
 .blog-meta {
   font-size: 12px;
   color: var(--meta-font-color);
-  padding: 4px;
-  padding-bottom: 0;
+  padding: 2px;
   display: flex;
   align-items: center;
 }
@@ -200,8 +174,9 @@ const showTime = computed(() => {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   padding-left: 5px;
-  color: #787878;
+  color: var(--vp-c-text-2);
   min-height: 40px;
+  font-family: revert;
 }
 .description-html {
   margin-top: 8px;
@@ -211,7 +186,7 @@ const showTime = computed(() => {
 .badge-list {
   font-size: 13px;
   color: var(--badge-font-color);
-  margin-top: 8px;
+  margin-top: 12px;
   display: inline-flex;
   align-items: center;
   flex-wrap: wrap;
