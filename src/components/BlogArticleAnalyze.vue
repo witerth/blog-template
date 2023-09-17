@@ -12,7 +12,7 @@
   <div class="meta-des" ref="$des" id="hack-article-des">
     <!-- TODO：是否需要原创？转载等标签，理论上可以添加标签解决，可以参考 charles7c -->
     <span v-if="author && !hiddenAuthor" class="author">
-      <img src="../styles/logo.png" alt="本文作者renkin" class="profile">
+      <img src="../styles/logo.png" alt="本文作者renkin" class="profile" />
       <a
         class="link"
         :href="currentAuthorInfo.url"
@@ -43,11 +43,7 @@
 import { useData, useRoute } from "vitepress";
 import { computed, onMounted, ref, watch } from "vue";
 import { ElIcon } from "element-plus";
-import {
-  Clock,
-  EditPen,
-  AlarmClock,
-} from "@element-plus/icons-vue";
+import { Clock, EditPen, AlarmClock } from "@element-plus/icons-vue";
 import { useBlogConfig, useCurrentArticle } from "../composables/config/blog";
 import countWord, { formatShowDate } from "../utils/client";
 import { Theme } from "../composables/config";
@@ -175,9 +171,12 @@ watch(
   text-align: left;
   color: var(--vp-c-text-2);
   font-size: 14px;
-  margin-top: 6px;
+  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--vp-c-divider);
   span {
     margin-right: 16px;
     display: flex;
@@ -195,5 +194,4 @@ watch(
     }
   }
 }
-
 </style>

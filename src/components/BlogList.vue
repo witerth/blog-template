@@ -7,7 +7,7 @@
         :description="v.meta.description"
         :description-h-t-m-l="v.meta.descriptionHTML"
         :date="v.meta.date"
-        :tag="v.meta.tag"
+        :tags="v.meta.tags"
         :cover="v.meta.cover"
         :author="v.meta.author || globalAuthor"
         :pin="v.meta.top"
@@ -32,91 +32,100 @@
   </ClientOnly>
 </template>
 <script setup lang="ts">
-import { computed, watch } from 'vue'
-import { ElPagination } from 'element-plus'
-import { useData, useRouter } from 'vitepress'
-import { useBrowserLocation } from '@vueuse/core'
-import BlogItem from './BlogItem.vue'
+import { computed, watch } from "vue";
+import { ElPagination } from "element-plus";
+import { useData, useRouter } from "vitepress";
+import { useBrowserLocation } from "@vueuse/core";
+import BlogItem from "./BlogItem.vue";
 import {
   useArticles,
   useActiveTag,
   useBlogConfig,
-  useCurrentPageNum
-} from '../composables/config/blog'
-import { Theme } from '../composables/config'
+  useCurrentPageNum,
+} from "../composables/config/blog";
+import { Theme } from "../composables/config";
 
-const { theme, frontmatter } = useData<Theme.Config>()
-const globalAuthor = computed(() => theme.value.blog?.author || '')
-const docs = useArticles()
+const { theme, frontmatter } = useData<Theme.Config>();
+const globalAuthor = computed(() => theme.value.blog?.author || "");
+const docs = useArticles();
 
-const activeTag = useActiveTag()
+const activeTag = useActiveTag();
 
-const activeTagLabel = computed(() => activeTag.value.label)
+const activeTagLabel = computed(() => activeTag.value.label);
 
 const wikiList = computed(() => {
-  const topList = docs.value.filter((v) => !v.meta.hidden && !!v.meta.top)
+  const topList = docs.value.filter((v) => !v.meta.hidden && !!v.meta.top);
   topList.sort((a, b) => {
-    const aTop = a?.meta?.top
-    const bTop = b?.meta.top
-    return Number(aTop) - Number(bTop)
-  })
+    const aTop = a?.meta?.top;
+    const bTop = b?.meta.top;
+    return Number(aTop) - Number(bTop);
+  });
+  const isSubject = (v: Theme.PageData) => v.route?.includes("专题系列");
+  // 专题文章默认不在首页展示，除非meta.top为true或者meta.hidden 为true
+  const isShowSubject = (v: Theme.PageData) => {
+    isSubject(v) && console.log(v, 123, v.meta.top || v.meta.showInHome);
+
+    return isSubject(v) && (v.meta.top || v.meta.showInHome);
+  };
   const data = docs.value.filter(
     (v) => v.meta.date && v.meta.title && !v.meta.top && !v.meta.hidden
-  )
-  data.sort((a, b) => +new Date(b.meta.date) - +new Date(a.meta.date))
-  return topList.concat(data)
-})
+  );
+  data.sort((a, b) => +new Date(b.meta.date) - +new Date(a.meta.date));
+  console.log(data, 123);
+
+  return topList.concat(data);
+});
 
 const filterData = computed(() => {
-  if (!activeTagLabel.value) return wikiList.value
+  if (!activeTagLabel.value) return wikiList.value;
   return wikiList.value.filter((v) =>
     v.meta?.tag?.includes(activeTagLabel.value)
-  )
-})
+  );
+});
 
-const { home } = useBlogConfig()
+const { home } = useBlogConfig();
 const pageSize = computed(
   () => frontmatter.value.blog?.pageSize || home?.pageSize || 6
-)
-const currentPage = useCurrentPageNum()
+);
+const currentPage = useCurrentPageNum();
 const currentWikiData = computed(() => {
-  const startIdx = (currentPage.value - 1) * pageSize.value
-  const endIdx = startIdx + pageSize.value
-  return filterData.value.slice(startIdx, endIdx)
-})
+  const startIdx = (currentPage.value - 1) * pageSize.value;
+  const endIdx = startIdx + pageSize.value;
+  return filterData.value.slice(startIdx, endIdx);
+});
 
-const router = useRouter()
-const location = useBrowserLocation()
-const queryPageNumKey = 'pageNum'
+const router = useRouter();
+const location = useBrowserLocation();
+const queryPageNumKey = "pageNum";
 const handleUpdatePageNum = (current: number) => {
   if (currentPage.value === current) {
-    return
+    return;
   }
-  currentPage.value = current
-  const { searchParams } = new URL(window.location.href!)
-  searchParams.delete(queryPageNumKey)
-  searchParams.append(queryPageNumKey, String(current))
+  currentPage.value = current;
+  const { searchParams } = new URL(window.location.href!);
+  searchParams.delete(queryPageNumKey);
+  searchParams.append(queryPageNumKey, String(current));
   router.go(
     `${location.value.origin}${router.route.path}?${searchParams.toString()}`
-  )
-}
+  );
+};
 
 watch(
   location,
   () => {
     if (location.value.href) {
-      const { searchParams } = new URL(location.value.href)
+      const { searchParams } = new URL(location.value.href);
       if (searchParams.has(queryPageNumKey)) {
-        currentPage.value = Number(searchParams.get(queryPageNumKey))
+        currentPage.value = Number(searchParams.get(queryPageNumKey));
       } else {
-        currentPage.value = 1
+        currentPage.value = 1;
       }
     }
   },
   {
-    immediate: true
+    immediate: true,
   }
-)
+);
 </script>
 <style lang="scss" scoped>
 .el-pagination-wrapper {

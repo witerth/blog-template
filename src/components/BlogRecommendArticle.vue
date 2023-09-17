@@ -37,7 +37,7 @@
           <!-- 描述信息 -->
           <div class="suffix">
             <!-- 日期 -->
-            <span class="tag">{{ formatShowDate(v.meta.date) }}</span>
+            <!-- <span class="tag">{{ formatShowDate(v.meta.date) }}</span> -->
           </div>
         </div>
       </li>
@@ -50,7 +50,7 @@
 import { ref, computed } from 'vue'
 import { useRoute, withBase } from 'vitepress'
 import { ElButton, ElLink } from 'element-plus'
-import { formatShowDate } from '../utils/client'
+// import { formatShowDate } from '../utils/client'
 import { useArticles, useBlogConfig } from '../composables/config/blog'
 
 const { recommend: _recommend } = useBlogConfig()
@@ -133,6 +133,10 @@ const showChangeBtn = computed(() => {
 </script>
 
 <style lang="scss" scoped>
+.card-header {
+  margin-bottom: 16px;
+  font-size: 18px;
+}
 .recommend {
   flex-direction: column;
   padding: v-bind(recommendPadding);

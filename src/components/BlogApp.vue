@@ -33,7 +33,6 @@ const { Layout } = Theme;
       <!-- 图片预览 -->
       <BlogImagePreview />
     </template>
-
     <!-- 自定义搜索，替代Algolia，未来择机移除 -->
     <template #nav-bar-content-before>
       <slot name="nav-bar-content-before" />
@@ -72,9 +71,10 @@ const { Layout } = Theme;
     <template #nav-bar-title-before
       ><slot name="nav-bar-title-before"
     /></template>
-    <template #nav-bar-title-after
-      ><slot name="nav-bar-title-after"
-    /></template>
+    <template #nav-bar-title-after>
+      <slot name="nav-bar-title-after" />
+      <span class="title-after-text">的扯淡日记</span>
+    </template>
     <template #nav-bar-content-after
       ><slot name="nav-bar-content-after"
     /></template>
@@ -142,7 +142,8 @@ const { Layout } = Theme;
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  :deep(.card),:deep(.blog-item) {
+  :deep(.card),
+  :deep(.blog-item) {
     background: var(--vp-c-bg);
   }
 }
@@ -173,5 +174,16 @@ const { Layout } = Theme;
     margin: 20px 0;
     width: 100%;
   }
+}
+
+.VPNavBar:not(.top), 
+.VPNavBar.has-sidebar {
+  .title-after-text {
+  visibility: visible;
+  margin-left: 4px;
+}
+}
+.title-after-text {
+  visibility: hidden;
 }
 </style>
