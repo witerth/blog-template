@@ -1,12 +1,12 @@
 ---
+hidden: true
 description: 详细介绍首页&文章相关的各个配置项
 title: 🔧 主题配置 - 首页&文章
 readingTime: false
-outline: [2,3]
-tag:
- - 配置
-top: 2
-recommend: 1
+tags:
+ - 博客配置
+group:
+ title: 博客配置
 ---
 
 # 主题配置
@@ -286,27 +286,19 @@ date: false
 
 ![](https://img.cdn.sugarat.top/mdImg/MTY4MjE3NTQwODI4MA==682175408280)
 
-### tag
+### tags
 用于按标签给文章分类，同时，在文章页标签可点击跳转
 
 ```md
 ---
-tag:
- - 日志
 tags:
  - 信息
-categories:
- - 测试分类
 ---
 ```
 
 ![图片](https://img.cdn.sugarat.top/mdImg/MTY3MzE4NTY0MTI2Nw==673185641267)
 
 ![](https://img.cdn.sugarat.top/mdImg/MTY4MjE3NTE3NjgyNg==682175176826)
-### tags
-效果同上
-### categories
-效果同上
 
 ### sticky
 用于设置在首页展示的 `精选文章`，值越大展示越靠前

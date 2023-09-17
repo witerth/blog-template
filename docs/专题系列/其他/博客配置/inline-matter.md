@@ -1,8 +1,13 @@
 ---
+hidden: true
 description: 介绍Vitepress内置常用能力
 title: VitePress - 常用能力
-tag:
- - 配置
+tags:
+ - 博客配置
+group:
+ title: 博客配置
+readingTime: false
+
 ---
 
 # 文章配置

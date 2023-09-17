@@ -20,6 +20,12 @@ dependencies:
   '@vueuse/core':
     specifier: ^9.6.0
     version: 9.13.0(vue@3.3.4)
+  codemirror:
+    specifier: ^5.65.12
+    version: 5.65.15
+  codemirror-editor-vue3:
+    specifier: ^2.3.0
+    version: 2.3.0(codemirror@5.65.15)(diff-match-patch@1.0.5)(vue@3.3.4)
   fast-glob:
     specifier: ^3.2.12
     version: 3.3.1
@@ -1381,6 +1387,22 @@ packages:
     optionalDependencies:
       fsevents: 2.3.3
 
+  /codemirror-editor-vue3@2.3.0(codemirror@5.65.15)(diff-match-patch@1.0.5)(vue@3.3.4):
+    resolution: {integrity: sha512-e6y/2wBL4Xb4SD10e/jq/lcoIeiWPMw2XnF6KePLlbmOphZ830XGU3kSz52qkoa9RUjaY6zHuSlwd09o13O/oQ==}
+    peerDependencies:
+      codemirror: ^5.x
+      diff-match-patch: ^1.0.5
+      vue: ^3.x
+    dependencies:
+      codemirror: 5.65.15
+      diff-match-patch: 1.0.5
+      vue: 3.3.4
+    dev: false
+
+  /codemirror@5.65.15:
+    resolution: {integrity: sha512-YC4EHbbwQeubZzxLl5G4nlbLc1T21QTrKGaOal/Pkm9dVDMZXMH7+ieSPEOZCtO9I68i8/oteJKOxzHC2zR+0g==}
+    dev: false
+
   /colorette@2.0.20:
     resolution: {integrity: sha512-IfEDxwoWIjkeXL1eXcDiow4UbKjhLdq6/EuSVR9GMN7KVH3r9gQ83e73hsz1Nd1T3ijd5xv1wcWRYO+D6kCI2w==}
     dev: true
@@ -1778,6 +1800,10 @@ packages:
   /destr@2.0.1:
     resolution: {integrity: sha512-M1Ob1zPSIvlARiJUkKqvAZ3VAqQY6Jcuth/pBKQ2b1dX/Qx0OnJ8Vux6J2H5PTMQeRzWrrbTu70VxBfv/OPDJA==}
     dev: true
+
+  /diff-match-patch@1.0.5:
+    resolution: {integrity: sha512-IayShXAgj/QMXgB0IWmKx+rOPuGMhqm5w6jvFxmVenXKIzRqTAAsbBPT3kWQeGANj3jGgvcvv4yK6SxqYmikgw==}
+    dev: false
 
   /diff@5.1.0:
     resolution: {integrity: sha512-D+mk+qE8VC/PAUrlAU34N+VfXev0ghe5ywmpqrawphmVZc1bEfn56uo9qpyGp1p4xpzOHkSW4ztBd6L7Xx4ACw==}

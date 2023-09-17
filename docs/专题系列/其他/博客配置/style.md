@@ -1,11 +1,12 @@
 ---
+hidden: true
 description: 介绍一下自定义主题的部分样式
 title: 🔧 主题配置 - 样式配置
 readingTime: false
-tag:
- - 配置
-top: 3
-recommend: 3
+tags:
+ - 博客配置
+group:
+ title: 博客配置
 ---
 
 # 样式配置

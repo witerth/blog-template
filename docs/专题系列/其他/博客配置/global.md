@@ -1,12 +1,12 @@
 ---
+hidden: true
 description: 详细介绍主题提供的全局能力
 title: 🔧 主题配置 - 全局
 readingTime: false
-tag:
- - 配置
-top: 2
-recommend: 2
-outline: [2,3]
+tags:
+ - 博客配置
+group:
+ title: 博客配置
 ---
 
 # 全局配置

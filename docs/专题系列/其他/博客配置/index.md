@@ -1,7 +1,13 @@
 ---
 sticky: 1
+readingTime: false
+tags:
+ - 博客配置
+ - 博客功能
+group:
+ title: 博客配置
 ---
-# 关于主题
+# 博客支持功能
 
 简约风的 Vitepress 博客主题，基于 [vitepress](https://vitepress.vuejs.org/) 的自定义主题实现
 

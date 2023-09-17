@@ -171,6 +171,7 @@ const showTime = computed(() => {
 }
 .title {
   font-size: 24px;
+  line-height: 32px;
   font-weight: 600;
   margin-bottom: 6px;
   // 多行换行

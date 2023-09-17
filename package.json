@@ -47,6 +47,8 @@
 		"@types/node": "^18.15.11",
 		"@vue/shared": "^3.2.45",
 		"@vueuse/core": "^9.6.0",
+		"codemirror": "^5.65.12",
+		"codemirror-editor-vue3": "^2.3.0",
 		"fast-glob": "^3.2.12",
 		"feed": "^4.2.2",
 		"gray-matter": "^4.0.3",

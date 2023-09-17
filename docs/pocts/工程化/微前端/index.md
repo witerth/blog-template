@@ -3,8 +3,9 @@ tags:
  - 微前端
  - qiankun
  - 工程化
-top: 1
+top: 2
 sidebar: false
+sticky: 1
 ---
 # 微前端子应用中渲染父应用组件技术方案
 
