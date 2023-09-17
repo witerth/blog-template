@@ -8,6 +8,7 @@ import UnoCSS from 'unocss/vite'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from "unplugin-icons/resolver";
 import { SearchPlugin } from 'vitepress-plugin-search'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 export default defineConfig({
   extends: blogTheme,
   lang: 'zh-cn',
@@ -54,12 +55,13 @@ export default defineConfig({
         eslintrc: {
           enabled: true,
         },
+        resolvers: [ElementPlusResolver()],
       }),
       // https://github.com/antfu/vite-plugin-components
       Components({
         dts: true,
         dirs: ["./src/components","./","src"],
-        resolvers: [IconsResolver()],
+        resolvers: [IconsResolver(),ElementPlusResolver()],
       }),
     ],
   },
@@ -78,11 +80,24 @@ export default defineConfig({
         link: '/aboutme'
       },
       {
+        text: `我的开源`,
+        link: '/我的开源/'
+      },
+      {
         text: '重学前端',
         items: [
           {
             text: "Javascript",
-            link:"/重学前端/javascript/"
+            link:"/专题系列/重学前端/javascript/"
+          }
+        ]
+      },
+      {
+        text: '其他',
+        items: [
+          {
+            text: "博客配置",
+            link:"/专题系列/其他/博客配置/"
           }
         ]
       },
