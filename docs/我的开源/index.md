@@ -6,12 +6,13 @@ sticky: 1
 top: 1
 hidden: false
 tags:
- - 开源
+ - 我的开源
  - codemirror-editor-vue3
  - Web IDE
  - vue3
 
 cover: https://files.catbox.moe/6laqa8.png
+hiddenCover: true
 ---
 
 # codemirror-editor-vue3：在 Vue 3 中集成 CodeMirror 文本编辑器的完美选择
@@ -27,7 +28,7 @@ cover: https://files.catbox.moe/6laqa8.png
 
 
 ## "自卖自瓜"
-> 以下内容来自 ChatGPT 
+> 以下内容来自 ChatGPT
 
 这是一个在 Vue 3 中集成 CodeMirror 文本编辑器的完美选择。
 

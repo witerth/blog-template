@@ -1,9 +1,9 @@
 ---
-tags: 
+tags:
  - 微前端
  - qiankun
  - 工程化
-top: 2
+top: 1
 sidebar: false
 sticky: 1
 ---
@@ -43,8 +43,8 @@ sticky: 1
 2. 子应用中确定**挂载点（micro-portal-container），**并在挂载点所在**组件初始渲染**后调用**挂载函数**（携带唯一ID 和 父应用所需参数）
 3. 父应用中处理参数并根据唯一ID控制对应组件的创建渲染（isMount）
 4. 通过 ReactDOM.createPortal 方法把父应用组件 "传送" 到子应用挂载点
-    
-    
+
+
 
 如图：
 
@@ -55,7 +55,7 @@ sticky: 1
 ### 一、在父应用中维护一个需要 portal 的组件状态对象
 
 > 子应用挂载点应有一个特殊前缀（MICRO_PORTAL_CONTAINER_PREFIX），方便区分
-> 
+>
 
 ```jsx
 // 子应用中嵌入父应用的容器id前缀
@@ -145,11 +145,11 @@ import React, { useEffect } from 'react';
 必须保证id和父应用的id一致
 */
 export default function MicroPortalContainer({ id, params }) {
-  
+
   useEffect(() => {
     window?.mountMicroPortalComponent?.(id,params);
   }, [])
-  
+
   return <div id={window.MICRO_PORTAL_CONTAINER_PREFIX + id}></div>;
 }
 ```
