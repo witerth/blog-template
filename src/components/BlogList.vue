@@ -60,26 +60,24 @@ const wikiList = computed(() => {
     const bTop = b?.meta.top;
     return Number(aTop) - Number(bTop);
   });
-  const isSubject = (v: Theme.PageData) => v.route?.includes("专题系列");
-  // 专题文章默认不在首页展示，除非meta.top为true或者meta.hidden 为true
-  const isShowSubject = (v: Theme.PageData) => {
-    isSubject(v) && console.log(v, 123, v.meta.top || v.meta.showInHome);
-
-    return isSubject(v) && (v.meta.top || v.meta.showInHome);
-  };
-  const data = docs.value.filter(
-    (v) => v.meta.date && v.meta.title && !v.meta.top && !v.meta.hidden
-  );
+  let data: Theme.PageData[] = [];
+  if (window.location.href.includes("tag=")) {
+    return docs.value.filter((v) =>
+      v.meta?.tags?.includes(activeTagLabel.value)
+    );
+  } else {
+    data = docs.value.filter(
+      (v) => v.meta.date && v.meta.title && !v.meta.top && !v.meta.hidden
+    );
+  }
   data.sort((a, b) => +new Date(b.meta.date) - +new Date(a.meta.date));
-  console.log(data, 123);
-
   return topList.concat(data);
 });
 
 const filterData = computed(() => {
   if (!activeTagLabel.value) return wikiList.value;
   return wikiList.value.filter((v) =>
-    v.meta?.tag?.includes(activeTagLabel.value)
+    v.meta?.tags?.includes(activeTagLabel.value)
   );
 });
 
