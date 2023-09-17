@@ -428,11 +428,8 @@ function getArticles(cfg) {
         /* @__PURE__ */ new Date(`${new Date(meta.date).toUTCString()}+${timeZone}`)
       );
     }
-    meta.categories = typeof meta.categories === "string" ? [meta.categories] : meta.categories;
-    meta.tags = typeof meta.tags === "string" ? [meta.tags] : meta.tags;
-    meta.tag = [meta.tag || []].flat().concat([
-      .../* @__PURE__ */ new Set([...meta.categories || [], ...meta.tags || []])
-    ]);
+    const _tags = typeof meta.tags === "string" ? [meta.tags] : meta.tags;
+    meta.tags = [.../* @__PURE__ */ new Set([..._tags || []])].flat();
     const wordCount = 200;
     meta.description = meta.description || getTextSummary(fileContent, wordCount);
     meta.cover = meta.cover ?? (fileContent.match(/[!]\[.*?\]\((https:\/\/.+)\)/)?.[1] || "");

@@ -51,8 +51,6 @@ export namespace Theme {
     author?: string
     hidden?: boolean
     layout?: string
-    // old
-    categories: string[]
     tags: string[]
     /**
      * 文章首页置顶

@@ -23,20 +23,20 @@
     <!-- 标签列表 -->
     <ul class="tag-list">
       <li
-        v-for="(item, idx) in tags"
-        :key="item.tag"
-        :class="{ active: activeTag.label === item.tag }"
+        v-for="(tag, idx) in tags"
+        :key="tag.label"
+        :class="{ active: activeTag.label === tag.label }"
       >
         <el-tag
           :type="tagType[idx % tagType.length]"
-          @click="handleTagClick(item.tag, tagType[idx % tagType.length])"
+          @click="handleTagClick(tag.label, tagType[idx % tagType.length])"
           :effect="colorMode"
         >
           <TagBlodIcon
-            v-if="activeTag.label === item.tag"
+            v-if="activeTag.label === tag.label"
             class="mr-1"
           ></TagBlodIcon>
-          {{ item.tag }}({{ item.count }})
+          {{ tag.label }}({{ tag.count }})
         </el-tag>
       </li>
     </ul>
@@ -59,7 +59,7 @@ import {
 const docs = useArticles();
 const tags = computed(() => {
   const allDocTag = docs.value
-    .map((v) => v.meta.tag || [])
+    .map((v) => v.meta.tags || [])
     .flat(Infinity) as string[];
 
   // 去重并统计每个标签的文章数量
@@ -67,7 +67,7 @@ const tags = computed(() => {
   for (const t of allDocTag) {
     docCountMap[t] = docCountMap[t] ? docCountMap[t] + 1 : 1;
   }
-  return Object.entries(docCountMap).map(([k, v]) => ({ tag: k, count: v }));
+  return Object.entries(docCountMap).map(([k, v]) => ({ label: k, count: v }));
 });
 
 const activeTag = useActiveTag();

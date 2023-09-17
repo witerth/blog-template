@@ -50,7 +50,6 @@ declare namespace Theme {
         author?: string;
         hidden?: boolean;
         layout?: string;
-        categories: string[];
         tags: string[];
         /**
          * 文章首页置顶

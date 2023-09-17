@@ -11,7 +11,8 @@
       <!-- 左侧信息 -->
       <div class="info-part">
         <!-- 标题 -->
-        <p class="title" v-if="!inMobile">{{ title }}</p>
+        <p class="title" v-if="!inMobile">
+          <span class="pin-text" v-if="!!pin">[置顶]</span>{{ title }}</p>
         <div class="blog-meta">
           <span class="split" v-if="author">
             <span class="author ">
@@ -38,8 +39,8 @@
         <div class="badge-list" v-if="!inMobile">
           <!-- <span class="split" v-if="author">{{ author }}</span>
           <span class="split">{{ showTime }}</span> -->
-          <span class="split" v-if="tag?.length">
-            <ArticleTags :tags="tag"></ArticleTags>
+          <span class="split" v-if="tags?.length">
+            <ArticleTags :tags="tags"></ArticleTags>
           </span>
         </div>
       </div>
@@ -55,8 +56,8 @@
     <div class="badge-list" v-if="inMobile">
       <!-- <span class="split" v-if="author">{{ author }}</span>
       <span class="split">{{ showTime }}</span> -->
-      <span class="split" v-if="tag?.length">
-        <ArticleTags :tags="tag"></ArticleTags>
+      <span class="split" v-if="tags?.length">
+        <ArticleTags :tags="tags"></ArticleTags>
       </span>
     </div>
   </a>
@@ -64,7 +65,6 @@
 
 <script lang="ts" setup>
 import ArticleTags from "./ArticleTags.vue";
-import PinIcon from "~icons/typcn/pin-outline";
 import { withBase } from "vitepress";
 import { computed } from "vue";
 import { useWindowSize } from "@vueuse/core";
@@ -79,7 +79,7 @@ const props = defineProps<{
   sticky?: number;
   description?: string;
   descriptionHTML?: string;
-  tag?: string[];
+  tags?: string[];
   author?: string;
   cover?: string | boolean;
   pin?: number;
@@ -112,6 +112,15 @@ const showTime = computed(() => {
   top: -4px;
   left: -4px;
   opacity: 0.5;
+}
+.pin-text {
+  color: #7797ff;
+    font-weight: 400;
+    font-family: auto;
+    /* vertical-align: super; */
+    font-size: 0.88em;
+    margin-right: 4px;
+    line-height: 24px;
 }
 .blog-item:hover .pin {
   opacity: 1;

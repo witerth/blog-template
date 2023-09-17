@@ -26,11 +26,11 @@ const props = defineProps<{
   tags?: string[];
 }>();
 const tags = computed(() => {
-  const { tag, tags, categories } = frontmatter.value;
+  const { tags } = frontmatter.value;
   return [
     ...new Set(
       []
-        .concat(tag, tags, categories, (props?.tags || []) as [])
+        .concat(tags, (props?.tags || []) as [])
         .flat()
         .filter((v) => !!v)
     ),

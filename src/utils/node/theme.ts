@@ -82,17 +82,8 @@ export function getArticles(cfg?: Partial<Theme.BlogConfig>) {
         )
       }
 
-      // 处理tags和categories,兼容历史文章
-      meta.categories =
-        typeof meta.categories === 'string'
-          ? [meta.categories]
-          : meta.categories
-      meta.tags = typeof meta.tags === 'string' ? [meta.tags] : meta.tags
-      meta.tag = [meta.tag || []]
-        .flat()
-        .concat([
-          ...new Set([...(meta.categories || []), ...(meta.tags || [])])
-        ])
+      const _tags = typeof meta.tags === "string" ? [meta.tags] : meta.tags;
+      meta.tags = [.../* @__PURE__ */ new Set([...(_tags || [])])].flat();
 
       // 获取摘要信息
       const wordCount = 200
