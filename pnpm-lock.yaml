@@ -43,7 +43,7 @@ dependencies:
     version: 10.4.0
   vitepress-plugin-mermaid:
     specifier: ^2.0.13
-    version: 2.0.14(mermaid@10.4.0)(vitepress@1.0.0-rc.11)
+    version: 2.0.14(mermaid@10.4.0)(vitepress@1.0.0-rc.13)
   vue-command-palette:
     specifier: ^0.1.4
     version: 0.1.4
@@ -86,14 +86,14 @@ devDependencies:
     specifier: ^0.24.1
     version: 0.24.1(vue@3.3.4)
   vitepress:
-    specifier: 1.0.0-rc.11
-    version: 1.0.0-rc.11(@types/node@18.15.11)(sass@1.67.0)(search-insights@2.8.2)
+    specifier: 1.0.0-rc.13
+    version: 1.0.0-rc.13(@types/node@18.15.11)(sass@1.67.0)(search-insights@2.8.2)
   vitepress-plugin-search:
     specifier: 1.0.4-alpha.20
-    version: 1.0.4-alpha.20(flexsearch@0.7.31)(vitepress@1.0.0-rc.11)(vue@3.3.4)
+    version: 1.0.4-alpha.20(flexsearch@0.7.31)(vitepress@1.0.0-rc.13)(vue@3.3.4)
   vitepress-plugin-tabs:
     specifier: ^0.2.0
-    version: 0.2.0(vitepress@1.0.0-rc.11)(vue@3.3.4)
+    version: 0.2.0(vitepress@1.0.0-rc.13)(vue@3.3.4)
   vue:
     specifier: ^3.3.4
     version: 3.3.4
@@ -3255,19 +3255,19 @@ packages:
     optionalDependencies:
       fsevents: 2.3.3
 
-  /vitepress-plugin-mermaid@2.0.14(mermaid@10.4.0)(vitepress@1.0.0-rc.11):
+  /vitepress-plugin-mermaid@2.0.14(mermaid@10.4.0)(vitepress@1.0.0-rc.13):
     resolution: {integrity: sha512-W3MEzrOB0xH8cSsc3ztliVPldTTr8TPZ4KGqC0uNmRKNbwsqT2Tl96R4ZXgqARLLawcb+0vyjU9wnOALRYTdxQ==}
     peerDependencies:
       mermaid: '10'
       vitepress: ^0.21.6 || ^1.0.0 || ^1.0.0-alpha
     dependencies:
       mermaid: 10.4.0
-      vitepress: 1.0.0-rc.11(@types/node@18.15.11)(sass@1.67.0)(search-insights@2.8.2)
+      vitepress: 1.0.0-rc.13(@types/node@18.15.11)(sass@1.67.0)(search-insights@2.8.2)
     optionalDependencies:
       '@mermaid-js/mermaid-mindmap': 9.3.0
     dev: false
 
-  /vitepress-plugin-search@1.0.4-alpha.20(flexsearch@0.7.31)(vitepress@1.0.0-rc.11)(vue@3.3.4):
+  /vitepress-plugin-search@1.0.4-alpha.20(flexsearch@0.7.31)(vitepress@1.0.0-rc.13)(vue@3.3.4):
     resolution: {integrity: sha512-zG+ev9pw1Mg7htABlFCNXb8XwnKN+qfTKw+vU0Ers6RIrABx+45EAAFBoaL1mEpl1FRFn1o/dQ7F4b8GP6HdGQ==}
     engines: {node: ^14.13.1 || ^16.7.0 || >=18}
     peerDependencies:
@@ -3280,22 +3280,22 @@ packages:
       flexsearch: 0.7.31
       glob-to-regexp: 0.4.1
       markdown-it: 13.0.1
-      vitepress: 1.0.0-rc.11(@types/node@18.15.11)(sass@1.67.0)(search-insights@2.8.2)
+      vitepress: 1.0.0-rc.13(@types/node@18.15.11)(sass@1.67.0)(search-insights@2.8.2)
       vue: 3.3.4
     dev: true
 
-  /vitepress-plugin-tabs@0.2.0(vitepress@1.0.0-rc.11)(vue@3.3.4):
+  /vitepress-plugin-tabs@0.2.0(vitepress@1.0.0-rc.13)(vue@3.3.4):
     resolution: {integrity: sha512-jTdtz4Z5fHllzcDAJaJK/bxE/2PhJSqetFUFgiB7xzw23O4yI+ntJrN+D3oP8XH/0559QUbrYd0K3YLoRaHbAA==}
     peerDependencies:
       vitepress: ^1.0.0-alpha.29
       vue: ^3.2.45
     dependencies:
-      vitepress: 1.0.0-rc.11(@types/node@18.15.11)(sass@1.67.0)(search-insights@2.8.2)
+      vitepress: 1.0.0-rc.13(@types/node@18.15.11)(sass@1.67.0)(search-insights@2.8.2)
       vue: 3.3.4
     dev: true
 
-  /vitepress@1.0.0-rc.11(@types/node@18.15.11)(sass@1.67.0)(search-insights@2.8.2):
-    resolution: {integrity: sha512-HUnfYOadqwLSahtgQxKt9/wiNHdd80BaUfQ+DIMpfq03Iv9CWX1SCBK4gxK/bMWns3Q0ArhXajQbU/fmBwYUMg==}
+  /vitepress@1.0.0-rc.13(@types/node@18.15.11)(sass@1.67.0)(search-insights@2.8.2):
+    resolution: {integrity: sha512-TnVydQOZE38rtXu9gHCb7EGdN03jTcmYkDdhCqox6+pfKYgiyfm1qk2Uy8BZatnM9wXpa64f+T5p30R8P/9Z+A==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.5.2
