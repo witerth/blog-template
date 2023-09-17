@@ -10,6 +10,5 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Codemirror: typeof import('./demo/codemirror.vue')['default']
-    ElTooltip: typeof import('element-plus/es')['ElTooltip']
   }
 }

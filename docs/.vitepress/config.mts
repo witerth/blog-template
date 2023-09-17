@@ -8,7 +8,6 @@ import UnoCSS from 'unocss/vite'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from "unplugin-icons/resolver";
 import { SearchPlugin } from 'vitepress-plugin-search'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 export default defineConfig({
   extends: blogTheme,
   lang: 'zh-cn',
@@ -55,13 +54,12 @@ export default defineConfig({
         eslintrc: {
           enabled: true,
         },
-        resolvers: [ElementPlusResolver()],
       }),
       // https://github.com/antfu/vite-plugin-components
       Components({
         dts: true,
         dirs: ["./src/components","./","src"],
-        resolvers: [IconsResolver(),ElementPlusResolver()],
+        resolvers: [IconsResolver()],
       }),
     ],
   },
@@ -141,5 +139,6 @@ export default defineConfig({
     },
     lastUpdatedText: '上次更新于'
   },
-  lastUpdated: true
+  lastUpdated: true,
+  ignoreDeadLinks: true
 })
