@@ -1,19 +1,20 @@
 <script setup lang="ts" name="BlogApp">
-import Theme from 'vitepress/theme'
-import BlogHomeInfo from './BlogHomeInfo.vue'
-import BlogHomeBanner from './BlogHomeBanner.vue'
-import BlogList from './BlogList.vue'
-import BlogComment from './BlogComment.vue'
-import BlogSearch from './BlogSearch.vue'
-import BlogSidebar from './BlogSidebar.vue'
-import BlogImagePreview from './BlogImagePreview.vue'
-import BlogArticleAnalyze from './BlogArticleAnalyze.vue'
-import BlogAlert from './BlogAlert.vue'
-import BlogPopover from './BlogPopover.vue'
-import { useBlogThemeMode } from '../composables/config/blog'
-
-const isBlogTheme = useBlogThemeMode()
-const { Layout } = Theme
+import Theme from "vitepress/theme";
+import BlogHomeInfo from "./BlogHomeInfo.vue";
+import BlogHomeBanner from "./BlogHomeBanner.vue";
+import BlogList from "./BlogList.vue";
+import BlogComment from "./BlogComment.vue";
+import BlogSearch from "./BlogSearch.vue";
+import BlogSidebar from "./BlogSidebar.vue";
+import BlogImagePreview from "./BlogImagePreview.vue";
+import BlogArticleAnalyze from "./BlogArticleAnalyze.vue";
+import BlogAlert from "./BlogAlert.vue";
+import BlogPopover from "./BlogPopover.vue";
+import BlogHomeTags from "./BlogHomeTags.vue";
+import { useBlogThemeMode, useActiveTag } from "../composables/config/blog";
+const activeTag = useActiveTag();
+const isBlogTheme = useBlogThemeMode();
+const { Layout } = Theme;
 </script>
 
 <template>
@@ -47,6 +48,9 @@ const { Layout } = Theme
         </div>
         <div class="content-wrapper">
           <div class="blog-list-wrapper">
+            <div class="tags-container" v-if="activeTag.label">
+              <BlogHomeTags></BlogHomeTags>
+            </div>
             <BlogList />
           </div>
           <div class="blog-info-wrapper"><BlogHomeInfo /></div>
