@@ -47,7 +47,7 @@ const { Layout } = Theme;
         </div>
         <div class="content-wrapper">
           <div class="blog-list-wrapper">
-            <div class="tags-container" v-if="activeTag.label">
+            <div class="transition-all tags-container" v-if="activeTag.label">
               <BlogHomeTags></BlogHomeTags>
             </div>
             <BlogList />
@@ -182,6 +182,5 @@ const { Layout } = Theme;
   overflow: hidden;
   transition: 0.3s all ease;
   // display: none;
-
 }
 </style>

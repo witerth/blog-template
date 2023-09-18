@@ -1,21 +1,21 @@
 <template>
-  <ul data-pagefind-ignore="all">
-    <li v-for="v in currentWikiData" :key="v.route">
-      <blog-item
-        :route="v.route"
-        :title="v.meta.title"
-        :description="v.meta.description"
-        :description-h-t-m-l="v.meta.descriptionHTML"
-        :date="v.meta.date"
-        :tags="v.meta.tags"
-        :cover="v.meta.cover"
-        :author="v.meta.author || globalAuthor"
-        :pin="v.meta.top"
-      />
-    </li>
-  </ul>
-  <!-- 解决element-ui bug -->
   <ClientOnly>
+    <ul data-pagefind-ignore="all">
+      <li v-for="v in currentWikiData" :key="v.route">
+        <blog-item
+          :route="v.route"
+          :title="v.meta.title"
+          :description="v.meta.description"
+          :description-h-t-m-l="v.meta.descriptionHTML"
+          :date="v.meta.date"
+          :tags="v.meta.tags"
+          :cover="v.meta.cover"
+          :author="v.meta.author || globalAuthor"
+          :pin="v.meta.top"
+        />
+      </li>
+    </ul>
+    <!-- 解决element-ui bug -->
     <div class="el-pagination-wrapper">
       <el-pagination
         v-if="wikiList.length >= pageSize"
@@ -41,7 +41,7 @@ import {
   useArticles,
   useActiveTag,
   useBlogConfig,
-  useCurrentPageNum
+  useCurrentPageNum,
 } from "../composables/config/blog";
 import { Theme } from "../composables/config";
 
@@ -52,8 +52,8 @@ const docs = useArticles();
 const activeTag = useActiveTag();
 
 const activeTagLabel = computed(() => activeTag.value.label);
-
-const wikiList = computed(() => {
+const wikiList = ref<Theme.PageData[]>([]);
+const getWikiList = () => {
   const topList = docs.value.filter((v) => !v.meta.hidden && !!v.meta.top);
   topList.sort((a, b) => {
     const aTop = a?.meta?.top;
@@ -61,16 +61,26 @@ const wikiList = computed(() => {
     return Number(aTop) - Number(bTop);
   });
   let data: Theme.PageData[] = [];
-  try {
-    if (window.location.href.includes("tag=")) {
-      return docs.value.filter((v) => v.meta?.tags?.includes(activeTagLabel.value));
-    } else {
-      data = docs.value.filter((v) => v.meta.date && v.meta.title && !v.meta.top && !v.meta.hidden);
-    }
-  } catch (error) {}
+  if (window.location.href.includes("tag=")) {
+    data = docs.value.filter((v) => v.meta?.tags?.includes(activeTagLabel.value));
+    // console.log(data, activeTagLabel.value,"data1111====");
+    wikiList.value = data;
+    return data;
+  } else {
+    data = docs.value.filter((v) => v.meta.date && v.meta.title && !v.meta.top && !v.meta.hidden);
+  }
 
   data.sort((a, b) => +new Date(b.meta.date) - +new Date(a.meta.date));
-  return topList.concat(data);
+  wikiList.value = topList.concat(data);
+
+  return wikiList.value;
+};
+
+onMounted(() => {
+  getWikiList();
+});
+watch(activeTagLabel, (val) => {
+  getWikiList();
 });
 
 const filterData = computed(() => {
@@ -114,8 +124,8 @@ watch(
     }
   },
   {
-    immediate: true
-  }
+    immediate: true,
+  },
 );
 </script>
 <style lang="scss" scoped>

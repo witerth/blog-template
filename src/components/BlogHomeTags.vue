@@ -1,45 +1,38 @@
 <template>
-  <div class="card blog-item-tags" v-if="tags.length" data-pagefind-ignore="all">
-    <!-- 头部 -->
-    <div class="card-header">
-      <span class="title">
-        <span v-if="activeTag.label" class="return-home-box">
-          <HomeIcon class="btn" @click="handleCloseTag" ></HomeIcon>|
+  <ClientOnly>
+    <div class="card blog-item-tags" v-if="tags.length" data-pagefind-ignore="all">
+      <!-- 头部 -->
+      <div class="card-header">
+        <span class="title">
+          <span v-if="activeTag.label" class="return-home-box">
+            <HomeIcon class="btn" @click="handleCloseTag"></HomeIcon>
+            |
+          </span>
+          <TagIcon class="mr-2" v-else></TagIcon>
+          <span :class="{ 'ml-10': activeTag.label }">所有标签</span>
         </span>
-        <TagIcon class="mr-2" v-else></TagIcon>
-        <span :class="{ 'ml-10': activeTag.label }">所有标签</span>
-      </span>
-      <a
-        v-if="activeTag.label"
-        @dblclick="handleCloseTag"
-        class="tag-link active"
-        :href="`/?tag=${activeTag.label}`"
-      >
-        <TagIcon class="mr-1" />{{ activeTag.label }}
-      </a>
-      <!-- <CloseIcon></CloseIcon> -->
+        <a v-if="activeTag.label" @dblclick="handleCloseTag" class="tag-link active">
+          <TagIcon class="mr-1" />
+          {{ activeTag.label }}
+        </a>
+        <!-- <CloseIcon></CloseIcon> -->
+      </div>
+      <!-- 标签列表 -->
+      <ul class="tag-list">
+        <li v-for="(tag, idx) in tags" :key="tag.label">
+          <el-tag
+            :class="{ active: activeTag.label === tag.label }"
+            :type="tagType[idx % tagType.length]"
+            @click="handleTagClick(tag.label, tagType[idx % tagType.length])"
+            :effect="colorMode"
+          >
+            <TagBlodIcon v-if="activeTag.label === tag.label" class="mr-1"></TagBlodIcon>
+            {{ tag.label }}({{ tag.count }})
+          </el-tag>
+        </li>
+      </ul>
     </div>
-    <!-- 标签列表 -->
-    <ul class="tag-list">
-      <li
-        v-for="(tag, idx) in tags"
-        :key="tag.label"
-        :class="{ active: activeTag.label === tag.label }"
-      >
-        <el-tag
-          :type="tagType[idx % tagType.length]"
-          @click="handleTagClick(tag.label, tagType[idx % tagType.length])"
-          :effect="colorMode"
-        >
-          <TagBlodIcon
-            v-if="activeTag.label === tag.label"
-            class="mr-1"
-          ></TagBlodIcon>
-          {{ tag.label }}({{ tag.count }})
-        </el-tag>
-      </li>
-    </ul>
-  </div>
+  </ClientOnly>
 </template>
 
 <script lang="ts" setup>
@@ -50,17 +43,12 @@ import { useRoute, useRouter } from "vitepress";
 import TagIcon from "~icons/solar/tag-linear";
 import TagBlodIcon from "~icons/solar/tag-bold";
 import HomeIcon from "~icons/mdi/home-import-outline";
-import {
-  useActiveTag,
-  useArticles,
-  useCurrentPageNum,
-} from "../composables/config/blog";
-
+import { useActiveTag, useArticles, useCurrentPageNum } from "../composables/config/blog";
+const router = useRouter();
+const location = useBrowserLocation();
 const docs = useArticles();
 const tags = computed(() => {
-  const allDocTag = docs.value
-    .map((v) => v.meta.tags || [])
-    .flat(Infinity) as string[];
+  const allDocTag = docs.value.map((v) => v.meta.tags || []).flat(Infinity) as string[];
 
   // 去重并统计每个标签的文章数量
   const docCountMap: any = {};
@@ -88,16 +76,20 @@ const handleCloseTag = () => {
   currentPage.value = 1;
 };
 
-const router = useRouter();
-const location = useBrowserLocation();
-
 const handleTagClick = (tag: string, type: string) => {
+  if (!activeTag.value.label) {
+    document.querySelector("#app")!.scrollIntoView({ behavior: "smooth" });
+  }
   if (tag === activeTag.value.label) {
     handleCloseTag();
     return;
   }
-  router.go(
-    `${location.value.origin}${router.route.path}?tag=${tag}&type=${type}`
+
+  // 用标签筛选文章时保留滚动位置
+  window.history.replaceState(
+    null,
+    "",
+    `${location.value.origin}${router.route.path}?tag=${tag}&type=${type}`,
   );
   activeTag.value.type = type;
   activeTag.value.label = tag;
@@ -105,21 +97,12 @@ const handleTagClick = (tag: string, type: string) => {
 };
 
 const route = useRoute();
-watch(
-  route,
-  (val) => {
-    try {
-    const url = new URL(window.location.href!);
-    activeTag.value.label = url?.searchParams.get("tag") || "";
-
-    } catch (error) {
-
-    }
-  },
-  {
-    immediate: true,
-  }
-);
+const updateActiveTag = () => {
+  // const url = new URL(window.location.href!);
+  // activeTag.value.label = url?.searchParams.get("tag") || "";
+};
+onMounted(updateActiveTag);
+watch(route, updateActiveTag);
 </script>
 <style scoped lang="scss" src="../styles/theme/tags.scss"></style>
 <style lang="scss" scoped>
@@ -132,7 +115,7 @@ watch(
   top: -14px;
   padding: 9px;
   padding-top: 12px;
-  &:hover{
+  &:hover {
     .btn {
       color: var(--vp-c-brand-1);
       transform: rotateY(180deg);
@@ -142,14 +125,13 @@ watch(
     font-size: 22px;
     margin-right: 4px;
     cursor: pointer;
-    transition: 0.5s all ease;
+    transition: 0.8s all ease;
   }
-  @media (max-width:768px){
+  @media (max-width: 768px) {
     .btn {
       color: var(--vp-c-brand-1);
       transform: rotateY(180deg);
     }
-
   }
 }
 .blog-item-tags {
@@ -169,24 +151,19 @@ watch(
   transition: 0.3s all ease;
 
   li {
-    margin-right: 4px;
+    margin-right: 6px;
     margin-bottom: 6px;
     cursor: pointer;
-    transform: scale(0.9);
+    // transform: scale(0.9);
     transition: 0.3s all ease;
+    font-weight: 500;
+    :deep(.el-tag) {
+      transition: 0.4s all ease;
 
-    &:hover,
-    &.active {
-      .el-tag {
-        font-weight: 500;
-        transform: scale(1.2);
-        box-shadow: var(--box-shadow-hover);
-      }
-      @media (max-width: 549px) {
-        .el-tag {
-          transform: scale(1);
-          text-decoration: underline ;
-        }
+      &.active,
+      &:hover {
+        transform: translate(0, -4px);
+        box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.2);
       }
     }
   }
