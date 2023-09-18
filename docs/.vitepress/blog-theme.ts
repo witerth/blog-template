@@ -137,7 +137,7 @@ export const workConfig: Theme.UserWorks = {
 
 const baseUrl = 'https://theme.sugarat.top'
 const RSS: Theme.RSSOptions = {
-  title: '@blog/theme',
+  title: '@sugarat/theme',
   baseUrl,
   copyright: 'Copyright (c) 2023-present, Renkin',
 }

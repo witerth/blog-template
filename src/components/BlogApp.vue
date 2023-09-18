@@ -17,12 +17,17 @@ const activeTag = useActiveTag();
 const isBlogTheme = useBlogThemeMode();
 const { Layout } = Theme;
 
-
 const route = useRoute();
 const updateActiveTag = () => {
   const url = new URL(window.location.href!);
   activeTag.value.label = url?.searchParams.get("tag") || "";
 };
+
+// 解决点击title回到首页，但是tag还在的问题
+const goHome = () => {
+  activeTag.value.label = "";
+};
+
 onMounted(updateActiveTag);
 watch(route, () => {
   console.group("Renkin blog log: [route changed]");
@@ -83,7 +88,10 @@ watch(route, () => {
 
     <!-- 透传默认主题的其它插槽 -->
     <!-- navbar -->
-    <template #nav-bar-title-before><slot name="nav-bar-title-before" /></template>
+    <template #nav-bar-title-before>
+      <slot name="nav-bar-title-before" />
+      <span class="title-router-control" @click="goHome"></span>
+    </template>
     <template #nav-bar-title-after>
       <slot name="nav-bar-title-after" />
       <span class="title-after-text">的扯淡日记</span>
@@ -172,6 +180,19 @@ watch(route, () => {
   .blog-info-wrapper {
     margin: 20px 0;
     width: 100%;
+  }
+}
+:deep(.VPNavBar) {
+  .title {
+    position: relative;
+  }
+  .title-router-control {
+    content: " ";
+    width: 100%;
+    top: 0;
+    z-index: 1;
+    position: absolute;
+    height: 100%;
   }
 }
 
