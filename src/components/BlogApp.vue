@@ -12,9 +12,24 @@ import BlogAlert from "./BlogAlert.vue";
 import BlogPopover from "./BlogPopover.vue";
 import BlogHomeTags from "./BlogHomeTags.vue";
 import { useBlogThemeMode, useActiveTag } from "../composables/config/blog";
+import { useRoute } from "vitepress";
 const activeTag = useActiveTag();
 const isBlogTheme = useBlogThemeMode();
 const { Layout } = Theme;
+
+
+const route = useRoute();
+const updateActiveTag = () => {
+  const url = new URL(window.location.href!);
+  activeTag.value.label = url?.searchParams.get("tag") || "";
+};
+onMounted(updateActiveTag);
+watch(route, () => {
+  console.group("Renkin blog log: [route changed]");
+  console.log("content:", route);
+  console.groupEnd();
+  updateActiveTag();
+});
 </script>
 
 <template>

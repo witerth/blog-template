@@ -96,13 +96,7 @@ const handleTagClick = (tag: string, type: string) => {
   currentPage.value = 1;
 };
 
-const route = useRoute();
-const updateActiveTag = () => {
-  const url = new URL(window.location.href!);
-  activeTag.value.label = url?.searchParams.get("tag") || "";
-};
-onMounted(updateActiveTag);
-watch(route, updateActiveTag);
+
 </script>
 <style scoped lang="scss" src="../styles/theme/tags.scss"></style>
 <style lang="scss" scoped>
