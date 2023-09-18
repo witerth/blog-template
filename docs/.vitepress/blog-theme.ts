@@ -151,10 +151,10 @@ export const blogTheme = getThemeConfig({
   author: 'witerth',
   // 评论
   comment: {
-    repo: 'ATQQ/sugar-blog',
-    repoId: 'MDEwOlJlcG9zaXRvcnkyNDEyNDUyOTk',
+    repo: 'witerth/blog-comments',
+    repoId: 'R_kgDOKU66jA',
     category: 'Announcements',
-    categoryId: 'DIC_kwDODmEcc84COVc6',
+    categoryId: 'DIC_kwDOKU66jM4CZZo7',
     inputPosition: 'top'
   },
   // popover: {
