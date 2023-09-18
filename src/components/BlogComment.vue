@@ -6,7 +6,7 @@
     data-pagefind-ignore="all"
     ref="commentEl"
   >
-    <el-affix
+    <!-- <el-affix
       :class="{ hidden: commentIsVisible }"
       class="comment-btn"
       target="main"
@@ -20,7 +20,7 @@
         type="primary"
         >评论</el-button
       >
-    </el-affix>
+    </el-affix> -->
     <component
       v-if="showComment"
       :is="'script'"
@@ -43,24 +43,24 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useElementVisibility } from '@vueuse/core'
+// import { useElementVisibility } from '@vueuse/core'
 import { useData, useRoute } from 'vitepress'
 import { computed, nextTick, ref, watch } from 'vue'
-import { ElAffix, ElButton } from 'element-plus'
-import { Comment } from '@element-plus/icons-vue'
+// import { ElAffix, ElButton } from 'element-plus'
+// import { Comment } from '@element-plus/icons-vue'
 import { useGiscusConfig } from '../composables/config/blog'
 import { Theme } from '../composables/config/index'
 
 const { frontmatter } = useData()
 const commentEl = ref(null)
-const commentIsVisible = useElementVisibility(commentEl)
+// const commentIsVisible = useElementVisibility(commentEl)
 
-const handleScrollToComment = () => {
-  document.querySelector('#giscus-comment')?.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start'
-  })
-}
+// const handleScrollToComment = () => {
+//   document.querySelector('#giscus-comment')?.scrollIntoView({
+//     behavior: 'smooth',
+//     block: 'start'
+//   })
+// }
 const giscusConfig = useGiscusConfig()
 
 const commentConfig = computed<Partial<Theme.GiscusConfig>>(() => {

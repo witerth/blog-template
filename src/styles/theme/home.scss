@@ -23,7 +23,7 @@
     border-bottom: 1px solid var(--vp-c-gutter);
     padding-bottom: 6px;
     padding-top: 4px;
-  
+
     .title {
       font-size: 18px;
       font-weight: 500;
@@ -103,3 +103,73 @@
     text-align: center;
   }
 }
+
+// 文章页样式覆盖，不包括有侧边栏的情况
+.Layout.renkin-theme {
+  .VPContent {
+    padding-bottom: 30px;
+  }
+  .VPContent:not(.has-sidebar) {
+    background-image: linear-gradient(
+        0deg,
+        transparent 24%,
+        rgba(201, 195, 195, 0.329) 25%,
+        hsla(0, 8%, 80.4%, 0.05) 26%,
+        transparent 27%,
+        transparent 74%,
+        hsla(0, 5.2%, 81%, 0.185) 75%,
+        rgba(180, 176, 176, 0.05) 76%,
+        transparent 77%,
+        transparent
+      ),
+      linear-gradient(
+        90deg,
+        transparent 24%,
+        rgba(204, 196, 196, 0.226) 25%,
+        hsla(0, 4%, 66.1%, 0.05) 26%,
+        transparent 27%,
+        transparent 74%,
+        hsla(0, 5.2%, 81%, 0.185) 75%,
+        rgba(180, 176, 176, 0.05) 76%,
+        transparent 77%,
+        transparent
+      );
+    background-color: var(--blog-c-bg);
+    background-size: 50px 50px;
+    background-repeat: repeat;
+
+    @media (min-width: 960px) {
+      div.VPDoc div.container{
+        max-width: 1240px;
+      }
+      div.VPDoc div.container div.content {
+        max-width: 1240px;
+      }
+    }
+    .VPDoc {
+      .container {
+
+
+        .content {
+          transition: 0.3s all;
+          padding: 32px 30px;
+          background: var(--vp-c-bg);
+          border-radius: 12px;
+          box-shadow: 0 1px 2px 0 var(--blog-posts-shadow-color), 0 2px 4px 0 var(--blog-posts-shadow-color);
+          &:hover {
+            box-shadow: 0 2px 4px 0 var(--blog-posts-shadow-color), 0 4px 8px 0 var(--blog-posts-shadow-color),
+              0 8px 16px 0 var(--blog-posts-shadow-color), 0 16px 32px 0 var(--blog-posts-shadow-color);
+          }
+          .content-container {
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .VPFooter {
+    padding: 10px;
+  }
+}
+

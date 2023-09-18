@@ -38,7 +38,7 @@ watch(route, () => {
 </script>
 
 <template>
-  <Layout>
+  <Layout class="renkin-theme">
     <template #layout-top>
       <BlogAlert />
       <BlogPopover />
