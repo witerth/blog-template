@@ -7,12 +7,12 @@ module.exports = {
   singleQuote: false,
   quoteProps: "as-needed",
   bracketSpacing: true,
-  trailingComma: "none",
   jsxSingleQuote: false,
   arrowParens: "always",
   insertPragma: false,
   requirePragma: false,
   proseWrap: "never",
   htmlWhitespaceSensitivity: "ignore",
-  endOfLine: "lf"
+  endOfLine: "lf",
+  trailingComma: "all"
 };
