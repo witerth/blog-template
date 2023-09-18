@@ -98,8 +98,8 @@ const handleTagClick = (tag: string, type: string) => {
 
 const route = useRoute();
 const updateActiveTag = () => {
-  // const url = new URL(window.location.href!);
-  // activeTag.value.label = url?.searchParams.get("tag") || "";
+  const url = new URL(window.location.href!);
+  activeTag.value.label = url?.searchParams.get("tag") || "";
 };
 onMounted(updateActiveTag);
 watch(route, updateActiveTag);
