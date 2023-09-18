@@ -15,7 +15,6 @@ export default defineConfig({
   description: 'Renkin 的扯淡日记',
   head: [...extraHead],
   vite: {
-    // configFile:"./vite.config.ts",
     server: {
       host: '0.0.0.0'
     },
@@ -26,6 +25,14 @@ export default defineConfig({
     },
     optimizeDeps: {
       exclude: ['vitepress-plugin-tabs']
+    },
+    // @ts-ignore
+    bulid: {
+      terserOptions: {
+        compress: {
+          drop_console: false,
+        },
+      },
     },
     plugins: [
       SearchPlugin({
