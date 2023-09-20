@@ -139,7 +139,7 @@
     background-repeat: repeat;
 
     @media (min-width: 960px) {
-      div.VPDoc div.container{
+      div.VPDoc div.container {
         max-width: 1240px;
       }
       div.VPDoc div.container div.content {
@@ -148,17 +148,25 @@
     }
     .VPDoc {
       .container {
-
-
         .content {
+          @media (max-width: 640px) {
+            &{
+          padding: 24px 16px;
+
+            }
+
+          }
           transition: 0.3s all;
-          padding: 32px 30px;
+          padding: 32px 34px;
           background: var(--vp-c-bg);
           border-radius: 12px;
-          box-shadow: 0 1px 2px 0 var(--blog-posts-shadow-color), 0 2px 4px 0 var(--blog-posts-shadow-color);
+          box-shadow: 0 1px 2px 0 var(--blog-posts-shadow-color),
+            0 2px 4px 0 var(--blog-posts-shadow-color);
           &:hover {
-            box-shadow: 0 2px 4px 0 var(--blog-posts-shadow-color), 0 4px 8px 0 var(--blog-posts-shadow-color),
-              0 8px 16px 0 var(--blog-posts-shadow-color), 0 16px 32px 0 var(--blog-posts-shadow-color);
+            box-shadow: 0 2px 4px 0 var(--blog-posts-shadow-color),
+              0 4px 8px 0 var(--blog-posts-shadow-color),
+              0 8px 16px 0 var(--blog-posts-shadow-color),
+              0 16px 32px 0 var(--blog-posts-shadow-color);
           }
           .content-container {
             max-width: 100%;
@@ -167,9 +175,45 @@
       }
     }
   }
+  .vp-doc h2 .header-anchor {
+    top: 0;
+  }
+  .VPContent:not(.has-sidebar) .VPDoc .container .aside {
+    padding-left: 0;
+    .aside-container {
+      padding-left: 30px;
+      padding-right: 20px;
+      width: 280px;
+    }
+    div.VPDocAsideOutline.has-outline {
+      div.content {
+        padding: 20px  ;
+      }
+      .outline-marker {
+        margin-top: 34px;
+        width: 3px;
+      }
+      .outline-title {
+        font-size: 18px;
+        padding-bottom: 4px;
+        border-bottom: 1px solid var(--blog-hr-border-color);
+        margin-bottom: 10px;
+      }
+      .outline-link {
+        font-size: 14px;
+        &:hover{
+          text-decoration: underline;
+        }
+        &.active {
+          color: var(--vp-c-brand-1);
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
 
   .VPFooter {
     padding: 10px;
   }
 }
-

@@ -72,7 +72,8 @@ export default defineConfig({
     ],
   },
   themeConfig: {
-    outline: [2,4],
+    outline: [2, 4],
+    outlineTitle:"文章目录",
     search: {
       provider: 'local',
     },
