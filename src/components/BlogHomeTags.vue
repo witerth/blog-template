@@ -36,10 +36,10 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, watch } from "vue";
+import { computed } from "vue";
 import { ElTag } from "element-plus";
 import { useBrowserLocation, useDark } from "@vueuse/core";
-import { useRoute, useRouter } from "vitepress";
+import {  useRouter } from "vitepress";
 import TagIcon from "~icons/solar/tag-linear";
 import TagBlodIcon from "~icons/solar/tag-bold";
 import HomeIcon from "~icons/mdi/home-import-outline";
@@ -134,6 +134,7 @@ const handleTagClick = (tag: string, type: string) => {
 }
 
 :deep(.el-tag__content) {
+  transition: 0.4s all ease;
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
