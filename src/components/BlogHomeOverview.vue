@@ -18,7 +18,7 @@
           </a>
         </div>
       </div>
-      <div class="mt-3 hr"></div>
+      <hr>
     </div>
     <div class="flex">
       <div class="overview-item">
@@ -45,10 +45,6 @@ import EmailIcon from "~icons/clarity/email-outline-alerted";
 import { computed } from "vue";
 import { isCurrentWeek } from "../utils/client";
 import { useArticles } from "../composables/config/blog";
-import { useClipboard } from "@vueuse/core";
-import { ElTooltip } from "element-plus";
-
-const { copy, copied } = useClipboard();
 
 const docs = useArticles();
 const notHiddenArticles = computed(() => {

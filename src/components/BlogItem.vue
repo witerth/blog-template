@@ -25,7 +25,8 @@
           >
           <span class="split">{{ showTime }}</span>
         </div>
-        <div class="hr"></div>
+      <hr>
+
         <!-- 简短描述 -->
         <p class="description" v-if="!descriptionHTML && !!description">
           {{ description }}

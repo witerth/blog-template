@@ -11,13 +11,14 @@ html {
   --description-font-color: #86909c;
 
   --blog-theme-color: var(--vp-c-brand-1);
-  --blog-c-bg:#f7fdfd;
+  --blog-c-bg: #f7fdfd;
   // --blog-theme-color: #409eff;
   --el-pagination-button-bg-color: #fff;
+  --blog-hr-border-color: rgba(51, 51, 51, 0.1);
 }
 
 html.dark {
-  --blog-c-bg:var(--vp-c-bg);
+  --blog-c-bg: var(--vp-c-bg);
 
   --bg-gradient: 20, 20, 20;
   --bg-gradient-home: 20, 20, 20;
@@ -27,6 +28,7 @@ html.dark {
   --badge-font-color: #bdc3cc;
   --meta-font-color: rgba(217, 217, 217, 0.7);
   --description-font-color: #9facba;
+  --blog-hr-border-color: rgba(195, 195, 195, 0.1);
 }
 .VPHome {
   background-image: linear-gradient(
@@ -119,10 +121,7 @@ html.dark {
 // sidebar
 @media (min-width: 1440px) {
   aside.VPSidebar {
-    padding-left: max(
-      32px,
-      calc((100% - (var(--vp-layout-max-width) - 16px)) / 2)
-    ) !important;
+    padding-left: max(32px, calc((100% - (var(--vp-layout-max-width) - 16px)) / 2)) !important;
     padding-right: 10px !important;
   }
 }
@@ -172,19 +171,23 @@ div.VPPluginSearch-search-item:hover {
   color: #fff;
 }
 
-.hr {
+hr {
   box-sizing: content-box;
-  height: 0;
+  height: 1px;
+  font-size: 13.3px;
+  width: 100%;
+  margin-top: 2px;
   border: 0;
   border-radius: 1px;
-  border-bottom: 1px solid rgba(51, 51, 51, 0.1);
+  border-bottom: 1px solid var(--blog-hr-border-color);
 }
 
-.author{ 
+.author {
   display: inline-flex;
   align-items: center;
   img.profile {
-  height: 1.2em;
-  border-radius: 50%;
-  margin-right: 4px !important;
-}}
+    height: 1.2em;
+    border-radius: 50%;
+    margin-right: 4px !important;
+  }
+}
