@@ -12,6 +12,7 @@ export default defineConfig({
   extends: blogTheme,
   lang: 'zh-cn',
   title: 'Renkin',
+  titleTemplate:"扯淡日记",
   description: 'Renkin 的扯淡日记',
   head: [...extraHead],
   vite: {
