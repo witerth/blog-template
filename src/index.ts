@@ -2,6 +2,7 @@
 import './styles/index.scss'
 import './styles/cover.scss'
 import './styles/theme/home.scss'
+import './styles/animation.scss'
 
 
 
