@@ -2,22 +2,20 @@
   <div class="card overview-data userinfo">
     <div class="userinfo">
       <div class="userinfo-outlinks">
-        <div class="mb-2 item">
-          <ElTooltip effect="dark" :content="copied ? 'copied' : 'Copy Email'" placement="top">
-            <EmailIcon @click="copy('zr906155099@gmail.com')"></EmailIcon>
-          </ElTooltip>
+        <div class="flex-center mb-2 item ">
+          <a href="mailto:zr906155099@gmail.com">
+            <EmailIcon class=""></EmailIcon>
+          </a>
         </div>
         <div class="item userinfo-profile-box">
           <a href="http://renkin.cn" title="Renkin">
             <img src="../styles/logo.png" alt="" class="userinfo-profile" />
           </a>
         </div>
-        <div class="mb-2 item">
-          <ElTooltip effect="dark" content="Github" placement="top">
-            <a href="https://github.com/rennzhang" target="_blank">
-              <GithublIcon></GithublIcon>
-            </a>
-          </ElTooltip>
+        <div class="flex-center mb-2 item">
+          <a href="https://github.com/rennzhang" target="_blank">
+            <GithublIcon></GithublIcon>
+          </a>
         </div>
       </div>
       <div class="mt-3 hr"></div>
@@ -94,6 +92,16 @@ const currentWeek = computed(() => {
     align-items: flex-end;
     .item {
       cursor: pointer;
+      border-radius: 50%;
+padding: 8px;
+      &:hover {
+        // background: var(--blog-item-tag-bg);
+        // box-shadow: var(--box-shadow-hover);
+        // box-shadow: 0 2px 1px 0 var(--blog-item-tag-bg), inset 0 2px 14px 0 var(--blog-item-tag-bg);
+
+
+
+      }
     }
   }
 }
