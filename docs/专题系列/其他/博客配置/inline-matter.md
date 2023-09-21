@@ -8,6 +8,9 @@ group:
  title: 博客配置
 readingTime: false
 recommend: 9
+prev:
+  text: '🔧 主题配置 - 样式配置'
+  link: './style'
 ---
 
 # 文章配置

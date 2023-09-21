@@ -189,6 +189,9 @@
   }
   .VPContent:not(.has-sidebar) .VPDoc .container .aside {
     padding-left: 0;
+    .aside-curtain {
+      margin-left: 30px;
+    }
     .aside-container {
       padding-left: 30px;
       padding-right: 20px;
