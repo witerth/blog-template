@@ -8,14 +8,9 @@
     <!-- 头部 -->
     <div class="card-header">
       <span class="title" v-if="title">{{ title }}</span>
-      <el-button
-        v-if="showChangeBtn"
-        size="small"
-        type="primary"
-        text
-        @click="changePage"
-        >{{ nextText }}</el-button
-      >
+      <el-button v-if="showChangeBtn" size="small" type="primary" text @click="changePage">
+        {{ nextText }}
+      </el-button>
     </div>
     <!-- 文章列表 -->
     <ol class="recommend-container" v-if="currentWikiData.length">
@@ -29,11 +24,12 @@
             type="info"
             class="title"
             :class="{
-              current: isCurrentDoc(v.route)
+              current: isCurrentDoc(v.route),
             }"
             :href="v.route"
-            >{{ v.meta.title }}</el-link
           >
+            {{ v.meta.title }}
+          </el-link>
           <!-- 描述信息 -->
           <div class="suffix">
             <!-- 日期 -->
@@ -47,36 +43,32 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue'
-import { useRoute, withBase } from 'vitepress'
-import { ElButton, ElLink } from 'element-plus'
+import { ref, computed } from "vue";
+import { useRoute, withBase } from "vitepress";
+import { ElButton, ElLink } from "element-plus";
 // import { formatShowDate } from '../utils/client'
-import { useArticles, useBlogConfig } from '../composables/config/blog'
+import { useArticles, useBlogConfig } from "../composables/config/blog";
 
-const { recommend: _recommend } = useBlogConfig()
+const { recommend: _recommend } = useBlogConfig();
 
 const sidebarStyle = computed(() =>
-  _recommend && _recommend?.style ? _recommend.style : 'sidebar'
-)
+  _recommend && _recommend?.style ? _recommend.style : "sidebar",
+);
 
-const recommendPadding = computed(() =>
-  sidebarStyle.value === 'card' ? '10px' : '0px'
-)
-const recommend = computed(() =>
-  _recommend === false ? undefined : _recommend
-)
-const title = computed(() => recommend.value?.title ?? '🔍 相关文章')
-const pageSize = computed(() => recommend.value?.pageSize || 9)
-const nextText = computed(() => recommend.value?.nextText || '换一组')
-const emptyText = computed(() => recommend.value?.empty ?? '暂无相关文章')
+const recommendPadding = computed(() => (sidebarStyle.value === "card" ? "10px" : "0px"));
+const recommend = computed(() => (_recommend === false ? undefined : _recommend));
+const title = computed(() => recommend.value?.title ?? "🔍 相关文章");
+const pageSize = computed(() => recommend.value?.pageSize || 9);
+const nextText = computed(() => recommend.value?.nextText || "换一组");
+const emptyText = computed(() => recommend.value?.empty ?? "暂无相关文章");
 
-const docs = useArticles()
+const docs = useArticles();
 
-const route = useRoute()
-
+const route = useRoute();
+type RecommendItem = (typeof docs.value)[0] & { route: string };
 const recommendList = computed(() => {
   // 中文支持
-  const paths = decodeURIComponent(route.path).split('/')
+  const paths = decodeURIComponent(route.path).split("/");
 
   const origin = docs.value
     .map((v) => ({ ...v, route: withBase(v.route) }))
@@ -84,8 +76,8 @@ const recommendList = computed(() => {
     // 限制为同路由前缀
     .filter(
       (v) =>
-        v.route.split('/').length === paths.length &&
-        v.route.startsWith(paths.slice(0, paths.length - 1).join('/'))
+        v.route.split("/").length === paths.length &&
+        v.route.startsWith(paths.slice(0, paths.length - 1).join("/")),
     )
     // 过滤出带标题的
     .filter((v) => !!v.meta.title)
@@ -93,43 +85,48 @@ const recommendList = computed(() => {
     .filter(
       (v) =>
         (recommend.value?.showSelf ?? true) ||
-        v.route !== decodeURIComponent(route.path).replace(/.html$/, '')
+        v.route !== decodeURIComponent(route.path).replace(/.html$/, ""),
     )
     // 过滤掉不需要展示的
     .filter((v) => v.meta.recommend !== false)
-    .filter((v) => recommend.value?.filter?.(v) ?? true)
+    .filter((v) => recommend.value?.filter?.(v) ?? true);
 
-  const topList = origin.filter((v) => v.meta?.recommend)
-  topList.sort((a, b) => Number(a.meta.recommend) - Number(b.meta.recommend))
+  const topList: RecommendItem[] = [];
+  const endList: RecommendItem[] = [];
+  origin.map((v) => {
+    if (!v.meta.recommend) return;
+    v.meta.recommend < origin.length ? topList.push(v) : endList.push(v);
+  });
+  topList.sort((a, b) => Number(a.meta.recommend) - Number(b.meta.recommend));
+  endList.sort((a, b) => Number(a.meta.recommend) - Number(b.meta.recommend));
 
-  const normalList = origin.filter((v) => !v.meta?.recommend)
-  normalList.sort((a, b) => +new Date(b.meta.date) - +new Date(a.meta.date))
+  const normalList = origin.filter((v) => !v.meta?.recommend);
+  normalList.sort((a, b) => +new Date(b.meta.date) - +new Date(a.meta.date));
 
-  return topList.concat(normalList)
-})
+  return topList.concat(normalList, endList);
+});
 
 const isCurrentDoc = (value: string) => {
-  return value === decodeURIComponent(route.path).replace(/.html$/, '')
-}
+  return value === decodeURIComponent(route.path).replace(/.html$/, "");
+};
 
-const currentPage = ref(1)
+const currentPage = ref(1);
 const changePage = () => {
-  const newIdx =
-    currentPage.value % Math.ceil(recommendList.value.length / pageSize.value)
-  currentPage.value = newIdx + 1
-}
+  const newIdx = currentPage.value % Math.ceil(recommendList.value.length / pageSize.value);
+  currentPage.value = newIdx + 1;
+};
 // 当前页开始的序号
-const startIdx = computed(() => (currentPage.value - 1) * pageSize.value)
+const startIdx = computed(() => (currentPage.value - 1) * pageSize.value);
 
 const currentWikiData = computed(() => {
-  const startIdx = (currentPage.value - 1) * pageSize.value
-  const endIdx = startIdx + pageSize.value
-  return recommendList.value.slice(startIdx, endIdx)
-})
+  const startIdx = (currentPage.value - 1) * pageSize.value;
+  const endIdx = startIdx + pageSize.value;
+  return recommendList.value.slice(startIdx, endIdx);
+});
 
 const showChangeBtn = computed(() => {
-  return recommendList.value.length > pageSize.value
-})
+  return recommendList.value.length > pageSize.value;
+});
 </script>
 
 <style lang="scss" scoped>
@@ -187,5 +184,4 @@ const showChangeBtn = computed(() => {
     }
   }
 }
-
 </style>
