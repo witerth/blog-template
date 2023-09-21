@@ -147,27 +147,36 @@
       }
     }
     .VPDoc {
+      @media (max-width: 640px) {
+        & {
+          padding: 32px 24px 96px;
+          background: var(--vp-c-bg);
+        }
+      }
       .container {
         .content {
           @media (max-width: 640px) {
-            &{
-          padding: 24px 16px;
-
+            & {
+              padding: 24px 0;
             }
-
+          }
+          @media (min-width: 640px) {
+            & {
+              padding: 32px 34px;
+              background: var(--vp-c-bg);
+              border-radius: 12px;
+              box-shadow: 0 1px 2px 0 var(--blog-posts-shadow-color),
+                0 2px 4px 0 var(--blog-posts-shadow-color);
+              &:hover {
+                box-shadow: 0 2px 4px 0 var(--blog-posts-shadow-color),
+                  0 4px 8px 0 var(--blog-posts-shadow-color),
+                  0 8px 16px 0 var(--blog-posts-shadow-color),
+                  0 16px 32px 0 var(--blog-posts-shadow-color);
+              }
+            }
           }
           transition: 0.3s all;
-          padding: 32px 34px;
-          background: var(--vp-c-bg);
-          border-radius: 12px;
-          box-shadow: 0 1px 2px 0 var(--blog-posts-shadow-color),
-            0 2px 4px 0 var(--blog-posts-shadow-color);
-          &:hover {
-            box-shadow: 0 2px 4px 0 var(--blog-posts-shadow-color),
-              0 4px 8px 0 var(--blog-posts-shadow-color),
-              0 8px 16px 0 var(--blog-posts-shadow-color),
-              0 16px 32px 0 var(--blog-posts-shadow-color);
-          }
+
           .content-container {
             max-width: 100%;
           }
@@ -187,7 +196,7 @@
     }
     div.VPDocAsideOutline.has-outline {
       div.content {
-        padding: 20px  ;
+        padding: 20px;
       }
       .outline-marker {
         margin-top: 34px;
@@ -201,7 +210,7 @@
       }
       .outline-link {
         font-size: 14px;
-        &:hover{
+        &:hover {
           text-decoration: underline;
         }
         &.active {
@@ -211,7 +220,6 @@
       }
     }
   }
-
 
   .VPFooter {
     padding: 10px;

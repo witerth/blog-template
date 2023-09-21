@@ -188,6 +188,7 @@ const showTime = computed(() => {
   font-size: 13px;
   color: var(--badge-font-color);
   margin-top: 12px;
+  margin-bottom: 4px;
   display: inline-flex;
   align-items: center;
   flex-wrap: wrap;

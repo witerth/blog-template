@@ -11,7 +11,7 @@
   </div>
   <div class="meta-des" ref="$des" id="hack-article-des">
     <!-- TODO：是否需要原创？转载等标签，理论上可以添加标签解决，可以参考 charles7c -->
-    <span v-if="author && !hiddenAuthor" class="author">
+    <span v-if="author && !hiddenAuthor" class="mb-2 author">
       <img src="../styles/logo.png" alt="本文作者renkin" class="profile" />
       <a
         class="link"
@@ -25,11 +25,11 @@
         {{ author }}
       </template>
     </span>
-    <span v-if="publishDate && !hiddenTime" class="publishDate">
+    <span v-if="publishDate && !hiddenTime" class="mb-2 publishDate">
       <el-icon :title="timeTitle"><Clock /></el-icon>
       {{ publishDate }}
     </span>
-    <ArticleTags></ArticleTags>
+    <ArticleTags class="mb-2"></ArticleTags>
     <!-- 封面展示 -->
     <ClientOnly>
       <BlogDocCover />
@@ -175,7 +175,6 @@ watch(
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 40px;
-  padding-bottom: 10px;
   border-bottom: 1px solid var(--vp-c-divider);
   span {
     margin-right: 16px;
