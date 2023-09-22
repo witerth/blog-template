@@ -1,5 +1,12 @@
-.DocSearch-Form {
-  padding: 10px 12px 10px 2px !important;
+
+.VPPluginSearch-modal-back .VPPluginSearch-modal {
+  background-color: var(--vp-c-bg);
+  .DocSearch-Form {
+    padding: 10px 12px 10px 2px !important;
+    .DocSearch-Input {
+      background: #bebebe36;
+    }
+  }
 }
 
 // VPNavBar
@@ -25,7 +32,7 @@
       width: 100%;
       height: 40px;
       background-color: var(--vp-c-bg-alt);
-      box-shadow:var(--docsearch-searchbox-shadow-top);
+      box-shadow: var(--docsearch-searchbox-shadow-top);
 
       &:hover {
         background: var(--docsearch-searchbox-focus-background);
