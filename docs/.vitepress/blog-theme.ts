@@ -149,11 +149,11 @@ export const blogTheme = getThemeConfig({
   },
   friend: [
     {
-      nickname: 'Renkin',
-      des: '你的指尖,拥有改变世界的力量',
+      nickname: '大前端面试宝典 - 图解前端',
+      des: '宇宙最强的前端面试指南',
       avatar:
-        'https://img.cdn.sugarat.top/mdImg/MTY3NDk5NTE2NzAzMA==674995167030',
-      url: 'https://sugarat.top'
+        'https://p.ipic.vip/jiysdy.jpg',
+      url: 'https://lucifer.ren/fe-interview/'
     },
     {
       nickname: 'Vitepress',
