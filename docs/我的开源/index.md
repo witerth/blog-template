@@ -1,6 +1,9 @@
 ---
 title: codemirror-editor-vue3：在 Vue 3 中集成 CodeMirror 文本编辑器的完美选择
 sidebar: false
+description: "这是一个在 Vue 3 中集成 CodeMirror 文本编辑器的完美选择。
+
+codemirror-editor-vue3 提供了简单而强大的方式，让您可以在 Vue 3 项目中充分利用 CodeMirror 的功能。它支持语法高亮、代码补全和代码折叠等特性，使您的编辑体验更加高效和愉悦。"
 # outline: [2,3]
 sticky: 1
 top: 1
