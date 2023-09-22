@@ -17,6 +17,17 @@ const activeTag = useActiveTag();
 const isBlogTheme = useBlogThemeMode();
 const { Layout } = Theme;
 
+const isDisabledScroll = ref(false);
+const activeElement = useActiveElement();
+
+watch(activeElement, (el) => {
+  if (el?.className === "DocSearch-Input") {
+    isDisabledScroll.value = true;
+    return;
+  }
+  isDisabledScroll.value = false;
+});
+
 const route = useRoute();
 const updateActiveTag = () => {
   const url = new URL(window.location.href!);
@@ -38,7 +49,7 @@ watch(route, () => {
 </script>
 
 <template>
-  <Layout class="renkin-theme">
+  <Layout :class="['renkin-theme', isDisabledScroll ? 'h-full overflow-hidden' : '']">
     <template #layout-top>
       <BlogAlert />
       <BlogPopover />
