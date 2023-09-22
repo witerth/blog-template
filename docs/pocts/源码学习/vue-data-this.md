@@ -15,7 +15,7 @@ sticky: 2
 
 ### new Vue 的大致走向：
 
-![image.png](https://open-aletopelta-5c5.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F071b3916-4691-493f-a204-c5c77d551cac%2F27312c73-a5c6-4264-860b-99005c9deb68%2FUntitled.png?table=block&id=62b594da-1c81-4958-aada-66a73211eb4e&spaceId=071b3916-4691-493f-a204-c5c77d551cac&width=2000&userId=&cache=v2)
+![image.png](https://fastly.jsdelivr.net/gh/rennzhang/blog-pics@main/images/1695396697979image.png)
 
 ### initMethods
 
