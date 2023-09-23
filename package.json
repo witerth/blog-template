@@ -71,6 +71,7 @@
 		"unplugin-icons": "^0.17.0",
 		"unplugin-vue-components": "^0.24.1",
 		"vitepress": "1.0.0-rc.13",
+    "vitepress-plugin-pagefind": "0.2.10",
 		"vitepress-plugin-search": "1.0.4-alpha.20",
 		"vitepress-plugin-tabs": "^0.2.0",
 		"vue": "^3.3.4"
