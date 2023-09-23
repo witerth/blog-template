@@ -40,7 +40,7 @@ export async function genFeed(config: SiteConfig) {
     // 过滤掉 layout:home
     .filter((v) => v.meta.layout !== 'home')
     // 过滤掉不展示的
-    .filter((v) => v.meta.hidden !== true)
+    .filter((v) => v.meta.hiddenInHome !== true)
 
   if (undefined !== RSS?.limit && RSS?.limit > 0) {
     posts.splice(RSS.limit)

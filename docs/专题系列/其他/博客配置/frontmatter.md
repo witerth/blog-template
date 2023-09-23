@@ -1,16 +1,14 @@
 ---
-hidden: true
+hiddenInHome: true
 description: 详细介绍首页&文章相关的各个配置项
 title: 🔧 主题配置 - 首页&文章
 readingTime: false
 tags:
  - 博客配置
-group:
- title: 博客配置
 ---
 
 # 主题配置
-这里将配置分成了2块 
+这里将配置分成了2块
 * `home`：首页的独立配置
 * `Article`：单篇文章独立配置
 
@@ -189,20 +187,20 @@ cover: false
 `hiddenCover` 控制是否展示当前文章的封面，全局配置开关见 [article.hiddenCover](./global.md#article)
 ```md
 ---
-hiddenCover: true 
+hiddenCover: true
 cover: url
 ---
 ```
 
 如果`hiddenCover`为 true 则不会在文章页展示上述的封面
 
-### hidden
+### hiddenInHome
 
 用于设置文章是否出现在首页的列表里
 
 ```md
 ---
-hidden: true
+hiddenInHome: true
 ---
 ```
 比如设置在`changelog.md`里，首页将不会展示此项
@@ -358,7 +356,7 @@ publish: false
 等价于
 ```md
 ---
-hidden: true
+hiddenInHome: true
 recommend: false
 ---
 ```

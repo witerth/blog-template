@@ -54,7 +54,7 @@ const activeTag = useActiveTag();
 const activeTagLabel = computed(() => activeTag.value.label);
 const wikiList = ref<Theme.PageData[]>([]);
 const getWikiList = () => {
-  const topList = docs.value.filter((v) => !v.meta.hidden && !!v.meta.top);
+  const topList = docs.value.filter((v) => !v.meta.hiddenInHome && !!v.meta.top);
   topList.sort((a, b) => {
     const aTop = a?.meta?.top;
     const bTop = b?.meta.top;
@@ -67,7 +67,7 @@ const getWikiList = () => {
     wikiList.value = data;
     return data;
   } else {
-    data = docs.value.filter((v) => v.meta.date && v.meta.title && !v.meta.top && !v.meta.hidden);
+    data = docs.value.filter((v) => v.meta.date && v.meta.title && !v.meta.top && !v.meta.hiddenInHome);
   }
 
   data.sort((a, b) => +new Date(b.meta.date) - +new Date(a.meta.date));

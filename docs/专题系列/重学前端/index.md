@@ -1,5 +1,5 @@
 ---
-hidden: true
+hiddenInHome: true
 sidebar:
  title: 简介
 group:

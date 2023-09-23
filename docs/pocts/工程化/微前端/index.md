@@ -6,6 +6,7 @@ tags:
 top: 1
 sidebar: false
 sticky: 1
+date: 2023-09-02
 ---
 # 微前端子应用中渲染父应用组件技术方案
 

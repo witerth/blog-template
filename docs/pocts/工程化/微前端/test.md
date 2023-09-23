@@ -1,5 +1,5 @@
 ---
-hidden: false
+hiddenInHome: false
 sidebar: false
 group:
  title: Javascript

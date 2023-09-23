@@ -48,7 +48,7 @@ declare namespace Theme {
         readingTime?: boolean;
         sticky?: number;
         author?: string;
-        hidden?: boolean;
+        hiddenInHome?: boolean;
         layout?: string;
         tags: string[];
         /**

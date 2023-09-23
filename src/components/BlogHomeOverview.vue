@@ -48,7 +48,7 @@ import { useArticles } from "../composables/config/blog";
 
 const docs = useArticles();
 const notHiddenArticles = computed(() => {
-  return docs.value.filter((v) => !v.meta.hidden);
+  return docs.value.filter((v) => !v.meta.hiddenInHome);
 });
 const nowMonth = new Date().getMonth();
 const nowYear = new Date().getFullYear();

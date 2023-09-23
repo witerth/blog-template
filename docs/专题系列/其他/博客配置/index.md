@@ -1,13 +1,16 @@
 ---
-recommend: 1
+# 首页推荐文章顺序
 sticky: 1
+# 显示文章阅读时间
 readingTime: false
 tags:
  - 博客配置
  - 博客功能
-group:
- title: 博客配置
+# 左侧边栏推荐文章顺序
+recommend: 1
 ---
+
+
 # 博客支持功能
 
 简约风的 Vitepress 博客主题，基于 [vitepress](https://vitepress.vuejs.org/) 的自定义主题实现

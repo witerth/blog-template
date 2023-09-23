@@ -97,7 +97,7 @@ export function getArticles(cfg?: Partial<Theme.BlogConfig>) {
 
       // 是否发布 默认发布
       if (meta.publish === false) {
-        meta.hidden = true
+        meta.hiddenInHome = true
         meta.recommend = false
       }
 

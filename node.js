@@ -434,7 +434,7 @@ function getArticles(cfg) {
     meta.description = meta.description || getTextSummary(fileContent, wordCount);
     meta.cover = meta.cover ?? (fileContent.match(/[!]\[.*?\]\((https:\/\/.+)\)/)?.[1] || "");
     if (meta.publish === false) {
-      meta.hidden = true;
+      meta.hiddenInHome = true;
       meta.recommend = false;
     }
     return {
@@ -493,7 +493,7 @@ async function genFeed(config) {
   posts.sort(
     (a, b) => +new Date(b.meta.date) - +new Date(a.meta.date)
   );
-  posts = posts.filter((v) => v.meta.layout !== "home").filter((v) => v.meta.hidden !== true);
+  posts = posts.filter((v) => v.meta.layout !== "home").filter((v) => v.meta.hiddenInHome !== true);
   if (void 0 !== RSS?.limit && RSS?.limit > 0) {
     posts.splice(RSS.limit);
   }

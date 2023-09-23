@@ -1,10 +1,10 @@
 ---
-hidden: true
+hiddenInHome: true
 sidebar:
  title: 简介
 group:
  title: Javascript
-tags: 
+tags:
  - 重学前端
  - javascript
  - js

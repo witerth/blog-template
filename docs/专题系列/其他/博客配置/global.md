@@ -1,12 +1,10 @@
 ---
-hidden: true
+hiddenInHome: true
 description: 详细介绍主题提供的全局能力
 title: 🔧 主题配置 - 全局
 readingTime: false
 tags:
  - 博客配置
-group:
- title: 博客配置
 ---
 
 # 全局配置
@@ -493,7 +491,7 @@ interface ArticleConfig {
 
 相对于项目根目录，文章所在位置，同 [App Configs #srcdir](https://vitepress.vuejs.org/config/app-configs#srcdir)
 
-**通常情况下无需设置**，默认从 CLI 指令取值 
+**通常情况下无需设置**，默认从 CLI 指令取值
 
 例如 `vitepress dev docs`，取值即为`docs`
 
@@ -699,7 +697,7 @@ interface FriendLink {
 const blogTheme = getThemeConfig({
   friend: [
     {
-      // 省略其他配置项 
+      // 省略其他配置项
       avatar: {
         // 单独设置 alt
         alt: 'Renkin23',
@@ -708,7 +706,7 @@ const blogTheme = getThemeConfig({
       }
     },
     {
-      // 省略其他配置项 
+      // 省略其他配置项
       avatar: {
         // 暗黑模式下使用不一样的logo
         dark:

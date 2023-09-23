@@ -7,7 +7,7 @@ codemirror-editor-vue3 提供了简单而强大的方式，让您可以在 Vue 3
 # outline: [2,3]
 sticky: 999
 top: 1
-hidden: false
+hiddenInHome: false
 tags:
  - 我的开源
  - codemirror-editor-vue3
@@ -16,6 +16,7 @@ tags:
 
 cover: https://files.catbox.moe/6laqa8.png
 hiddenCover: true
+date: 2023-09-10
 ---
 
 # codemirror-editor-vue3：在 Vue 3 中集成 CodeMirror 文本编辑器的完美选择
