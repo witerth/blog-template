@@ -13,12 +13,12 @@ export function getVitePlugins(cfg?: Partial<Theme.BlogConfig>) {
   plugins.push(inlineBuildEndPlugin(buildEndFn))
 
   // 内置简化版的pagefind
-  if (
-    cfg?.search === 'pagefind' ||
-    (cfg?.search instanceof Object && cfg.search.mode === 'pagefind')
-  ) {
-    plugins.push(inlinePagefindPlugin(buildEndFn))
-  }
+  // if (
+  //   cfg?.search === 'pagefind' ||
+  //   (cfg?.search instanceof Object && cfg.search.mode === 'pagefind')
+  // ) {
+  //   plugins.push(inlinePagefindPlugin(buildEndFn))
+  // }
 
   buildEndFn.push(genFeed)
   return plugins

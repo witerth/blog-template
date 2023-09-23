@@ -36,7 +36,7 @@ __export(node_exports, {
 });
 module.exports = __toCommonJS(node_exports);
 
-// node_modules/.pnpm/vitepress-plugin-tabs@0.2.0_vitepress@1.0.0-rc.11_vue@3.3.4/node_modules/vitepress-plugin-tabs/dist/index.js
+// node_modules/.pnpm/vitepress-plugin-tabs@0.2.0_vitepress@1.0.0-rc.13_vue@3.3.4/node_modules/vitepress-plugin-tabs/dist/index.js
 var tabsMarker = "=tabs";
 var tabsMarkerLen = tabsMarker.length;
 var ruleBlockTabs = (state, startLine, endLine, silent) => {
@@ -288,11 +288,11 @@ function aliasObjectToArray(obj) {
   }));
 }
 var EXTERNAL_URL_RE = /^[a-z]+:/i;
-function joinPath(base, path4) {
-  return `${base}${path4}`.replace(/\/+/g, "/");
+function joinPath(base, path3) {
+  return `${base}${path3}`.replace(/\/+/g, "/");
 }
-function withBase(base, path4) {
-  return EXTERNAL_URL_RE.test(path4) || path4.startsWith(".") ? path4 : joinPath(base, path4);
+function withBase(base, path3) {
+  return EXTERNAL_URL_RE.test(path3) || path3.startsWith(".") ? path3 : joinPath(base, path3);
 }
 
 // src/utils/node/mdPlugins.ts
@@ -460,10 +460,6 @@ function patchVPThemeConfig(cfg, vpThemeConfig = {}) {
   return vpThemeConfig;
 }
 
-// src/utils/node/vitePlugins.ts
-var import_path3 = __toESM(require("path"));
-var import_child_process2 = require("child_process");
-
 // src/utils/node/genFeed.ts
 var import_path2 = __toESM(require("path"));
 var import_fs2 = __toESM(require("fs"));
@@ -544,51 +540,12 @@ function getVitePlugins(cfg) {
   const plugins = [];
   const buildEndFn = [];
   plugins.push(inlineBuildEndPlugin(buildEndFn));
-  if (cfg?.search === "pagefind" || cfg?.search instanceof Object && cfg.search.mode === "pagefind") {
-    plugins.push(inlinePagefindPlugin(buildEndFn));
-  }
   buildEndFn.push(genFeed);
   return plugins;
 }
 function registerVitePlugins(vpCfg, plugins) {
   vpCfg.vite = {
     plugins
-  };
-}
-function inlinePagefindPlugin(buildEndFn) {
-  buildEndFn.push(() => {
-    const ignore = [
-      // 侧边栏内容
-      "div.aside",
-      // 标题锚点
-      "a.header-anchor"
-    ];
-    const { log } = console;
-    log();
-    log("=== pagefind: https://pagefind.app/ ===");
-    let command = `npx pagefind --source ${import_path3.default.join(
-      process.argv.slice(2)?.[1] || ".",
-      ".vitepress/dist"
-    )}`;
-    if (ignore.length) {
-      command += ` --exclude-selectors "${ignore.join(", ")}"`;
-    }
-    log(command);
-    log();
-    (0, import_child_process2.execSync)(command, {
-      stdio: "inherit"
-    });
-  });
-  return {
-    name: "project-pagefind",
-    enforce: "pre",
-    // 添加检索的内容标识
-    transform(code, id) {
-      if (id.endsWith("theme-default/Layout.vue")) {
-        return code.replace("<VPContent>", "<VPContent data-pagefind-body>");
-      }
-      return code;
-    }
   };
 }
 function inlineBuildEndPlugin(buildEndFn) {
