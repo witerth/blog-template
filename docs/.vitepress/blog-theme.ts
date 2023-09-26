@@ -135,9 +135,9 @@ export const workConfig: Theme.UserWorks = {
   ]
 }
 
-const baseUrl = 'https://theme.sugarat.top'
+const baseUrl = 'https://renkin.cn'
 const RSS: Theme.RSSOptions = {
-  title: '@sugarat/theme',
+  title: 'Renkin 的扯淡日记',
   baseUrl,
   copyright: 'Copyright (c) 2023-present, Renkin',
 }
@@ -182,7 +182,8 @@ export const blogTheme = getThemeConfig({
       { type: 'text', content: '👇公众号👇---👇 微信 👇' },
       {
         type: 'image',
-        src: 'https://img.cdn.sugarat.top/mdImg/MTYxNTAxODc2NTIxMA==615018765210'
+        src:""
+        // src: 'https://img.cdn.sugarat.top/mdImg/MTYxNTAxODc2NTIxMA==615018765210'
       },
       {
         type: 'text',
