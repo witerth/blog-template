@@ -16,7 +16,7 @@ data: 2023-9-22 22:07:19
 
 ### new Vue 的大致走向：
 
-![image.png](https://fastly.jsdelivr.net/gh/rennzhang/blog-pics@main/images/1695396697979image.png)
+![image.png](https://cdn.jsdelivr.net/gh/rennzhang/blog-pics@main/images/1695396697979image.png)
 
 ### initMethods
 
